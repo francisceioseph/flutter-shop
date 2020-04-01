@@ -27,6 +27,8 @@ class Product extends Equatable {
   String get firstImage =>
       images.length > 0 ? images.first : 'https://picsum.photos/200';
 
+  String get formattedPrice => 'R\$ ${price.toStringAsFixed(2)}';
+
   int get discount {
     if (oldPrice == 0) {
       return 0;
