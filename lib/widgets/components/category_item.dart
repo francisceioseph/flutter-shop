@@ -4,37 +4,52 @@ import 'package:flutter_shop/models/state/app_state_model.dart';
 import 'package:flutter_shop/widgets/pages/products_page.dart';
 import 'package:provider/provider.dart';
 
-class CategoryListItem extends StatelessWidget {
+class CategoryItem extends StatelessWidget {
   final Category category;
 
-  const CategoryListItem({
+  const CategoryItem({
     Key key,
     @required this.category,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      contentPadding: EdgeInsets.all(8),
-      leading: CircleAvatar(
-        radius: 25,
-        backgroundImage: NetworkImage(category.imageUrl),
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
-      title: Text(
-        category.name,
-        style:
-            Theme.of(context).primaryTextTheme.subhead.copyWith(fontSize: 18),
-      ),
-      trailing: Icon(Icons.chevron_right),
-      onTap: () {
-        final state = Provider.of<AppStateModel>(
-          context,
-          listen: false,
-        );
-        state.selectCategory(category.id);
+      child: InkWell(
+        onTap: () {
+          final state = Provider.of<AppStateModel>(
+            context,
+            listen: false,
+          );
+          state.selectCategory(category.id);
 
-        Navigator.of(context).pushNamed(ProductsPage.routeName);
-      },
+          Navigator.of(context).pushNamed(ProductsPage.routeName);
+        },
+        child: Container(
+          padding: EdgeInsets.all(8),
+          child: Column(
+            children: <Widget>[
+              ClipRRect(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  child: Image.network(category.imageUrl),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(8),
+                child: Text(
+                  category.name,
+                  style: Theme.of(context).primaryTextTheme.title,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
