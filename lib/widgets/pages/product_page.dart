@@ -40,7 +40,11 @@ class ProductPage extends StatelessWidget {
                 ),
                 ProductButton(
                   text: 'Add to Cart',
-                  onPressed: () {},
+                  onPressed: () {
+                    Provider.of<AppStateModel>(context, listen: false)
+                        .addProductToCart(product);
+                    _showSnackBar(context, 'Product added to chart!');
+                  },
                 ),
                 ProductButton(
                   text: 'Buy Now',
@@ -53,5 +57,10 @@ class ProductPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _showSnackBar(BuildContext context, String message) {
+    final snackbar = SnackBar(content: Text(message));
+    Scaffold.of(context).showSnackBar(snackbar);
   }
 }

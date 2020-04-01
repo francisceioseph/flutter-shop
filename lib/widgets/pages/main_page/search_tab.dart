@@ -19,7 +19,11 @@ class _SearchTabState extends State<SearchTab> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16),
+      margin: EdgeInsets.only(
+        top: 16,
+        right: 16,
+        left: 16,
+      ),
       child: SingleChildScrollView(
         child: Column(
           children: <Widget>[

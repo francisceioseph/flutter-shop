@@ -2,28 +2,14 @@ import 'package:flutter_lorem/flutter_lorem.dart';
 import 'package:flutter_shop/models/product.dart';
 
 class ProductsRepository {
-  final _all = [
-    Product(
-        id: '1',
-        name: 'Product 01',
-        price: 0.5,
-        categoryId: '2',
-        oldPrice: 1,
-        description: lorem(paragraphs: 4, words: 200),
-        images: [
-          'https://picsum.photos/200',
-          'https://picsum.photos/200',
-          'https://picsum.photos/200',
-          'https://picsum.photos/200',
-          'https://picsum.photos/200',
-          'https://picsum.photos/200',
-          'https://picsum.photos/200',
-        ]),
-    Product(
-      id: '2',
-      name: 'Product 02',
-      price: 1.22,
-      categoryId: '2',
+  final _all = List.generate(
+    400,
+    (int index) => Product(
+      id: '$index',
+      name: 'Product 0$index',
+      price: 0.5,
+      categoryId: '${(index / 4) + 1}',
+      oldPrice: 1,
       description: lorem(paragraphs: 4, words: 200),
       images: [
         'https://picsum.photos/200',
@@ -35,39 +21,7 @@ class ProductsRepository {
         'https://picsum.photos/200',
       ],
     ),
-    Product(
-      id: '3',
-      name: 'Product 03',
-      price: 1.22,
-      categoryId: '3',
-      description: lorem(paragraphs: 4, words: 200),
-      images: [
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-      ],
-    ),
-    Product(
-      id: '4',
-      name: 'Product 04',
-      price: 1.22,
-      categoryId: '3',
-      description: lorem(paragraphs: 4, words: 200),
-      images: [
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-      ],
-    ),
-  ];
+  );
 
   Future<List<Product>> getProducts(String categoryId) async {
     return categoryId == '1'
