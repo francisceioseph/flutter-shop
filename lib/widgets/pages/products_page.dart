@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/models/state/app_state_model.dart';
 import 'package:flutter_shop/widgets/components/product_item/product_item.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_shop/widgets/components/staggered_grid.dart';
 import 'package:provider/provider.dart';
 
 class ProductsPage extends StatelessWidget {
@@ -26,17 +26,11 @@ class ProductsPage extends StatelessWidget {
               AppStateModel model,
               Widget child,
             ) {
-              return StaggeredGridView.countBuilder(
-                crossAxisCount: 4,
-                mainAxisSpacing: 8,
-                crossAxisSpacing: 8,
+              return StaggeredGrid(
                 itemCount: model.products.length,
                 itemBuilder: (BuildContext context, int index) {
                   final product = model.products[index];
                   return ProductItem(product: product);
-                },
-                staggeredTileBuilder: (int index) {
-                  return StaggeredTile.fit(2);
                 },
               );
             },

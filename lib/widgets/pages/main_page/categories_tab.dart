@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/models/state/app_state_model.dart';
 import 'package:flutter_shop/widgets/components/category_item.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_shop/widgets/components/staggered_grid.dart';
 import 'package:provider/provider.dart';
 
 class ProductsTab extends StatefulWidget {
@@ -27,18 +27,12 @@ class _CategoriesTabState extends State<ProductsTab> {
         AppStateModel model,
         Widget widget,
       ) {
-        return StaggeredGridView.countBuilder(
-          crossAxisCount: 4,
-          mainAxisSpacing: 8,
-          crossAxisSpacing: 8,
+        return StaggeredGrid(
           itemCount: model.categories.length,
           itemBuilder: (BuildContext context, int index) {
             return CategoryItem(
               category: model.categories[index],
             );
-          },
-          staggeredTileBuilder: (int index) {
-            return StaggeredTile.fit(2);
           },
         );
       },
