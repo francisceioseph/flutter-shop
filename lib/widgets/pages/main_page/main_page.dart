@@ -34,17 +34,19 @@ class MainPage extends StatelessWidget {
     return DefaultTabController(
       initialIndex: 0,
       length: _tabViews.length,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('Flutter Store'),
-        ),
-        body: TabBarView(children: _tabViews),
-        bottomNavigationBar: TabBar(
-          tabs: _tabs,
-          indicatorSize: TabBarIndicatorSize.label,
-          indicatorPadding: EdgeInsets.all(5.0),
-          indicatorColor: Theme.of(context).accentColor,
-          labelColor: Theme.of(context).accentColor,
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('Flutter Store'),
+          ),
+          body: TabBarView(children: _tabViews),
+          bottomNavigationBar: TabBar(
+            tabs: _tabs,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorPadding: EdgeInsets.all(5.0),
+            indicatorColor: Theme.of(context).accentColor,
+            labelColor: Theme.of(context).accentColor,
+          ),
         ),
       ),
     );

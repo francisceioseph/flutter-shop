@@ -14,7 +14,7 @@ class ProductsPage extends StatelessWidget {
     final appState = Provider.of<AppStateModel>(context, listen: false);
     appState.loadProducts();
 
-    return Container(
+    return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: Text(appState.currentCategory?.name),
