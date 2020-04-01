@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/models/product.dart';
-import 'package:flutter_shop/widgets/components/product_item_title.dart';
+import 'package:flutter_shop/widgets/components/product_item/product_name_section.dart';
+import 'package:flutter_shop/widgets/components/product_item/product_old_price_section.dart';
+import 'package:flutter_shop/widgets/components/product_item/product_price_section.dart';
 
 class ProductItem extends StatelessWidget {
   final Product product;
@@ -12,8 +14,6 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).primaryTextTheme;
-
     return Card(
       elevation: 2,
       shape: RoundedRectangleBorder(
@@ -32,23 +32,15 @@ class ProductItem extends StatelessWidget {
                 child: Image.network(product.firstImage),
               ),
             ),
-            if (product.oldPrice > 0)
-              Text(
-                'R\$ ${product.oldPrice}',
-                style: Theme.of(context).primaryTextTheme.subhead.copyWith(
-                      fontWeight: FontWeight.w200,
-                      decoration: TextDecoration.lineThrough,
-                    ),
-              ),
-            ProductItemTitle(
+            ProductOldPriceSection(
               product: product,
             ),
-            Text(
-              product.name,
-              style: textTheme.subtitle.copyWith(
-                fontWeight: FontWeight.w300,
-              ),
+            ProductPriceSection(
+              product: product,
             ),
+            ProductNameSection(
+              product: product,
+            )
           ],
         ),
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/models/state/app_state_model.dart';
-import 'package:flutter_shop/widgets/components/product_item.dart';
+import 'package:flutter_shop/widgets/components/product_item/product_item.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
 

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/models/product.dart';
 
-class ProductItemTitle extends StatelessWidget {
+class ProductPriceSection extends StatelessWidget {
   final Product product;
 
-  const ProductItemTitle({
+  const ProductPriceSection({
     Key key,
     this.product,
   }) : super(key: key);
