@@ -1,21 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/widgets/pages/landing_page.dart';
+import 'package:flutter_shop/widgets/pages/login_page.dart';
 import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
 import 'package:flutter_shop/widgets/pages/product_page.dart';
-import 'package:flutter_shop/widgets/pages/products_page.dart';
+import 'package:flutter_shop/widgets/pages/register_page.dart';
 
 class AppRouter {
   MaterialPageRoute onGenerateRoute(RouteSettings settings) {
     return MaterialPageRoute(
       builder: (BuildContext context) {
-        if (settings.name == ProductsPage.routeName) {
-          return ProductsPage();
-        }
+        switch (settings.name) {
+          case MainPage.routeName:
+            return MainPage();
 
-        if (settings.name == ProductPage.routeName) {
-          return ProductPage();
-        }
+          case ProductPage.routeName:
+            return ProductPage();
 
-        return MainPage();
+          case LoginPage.routeName:
+            return LoginPage();
+
+          case RegisterPage.routeName:
+            return RegisterPage();
+
+          default:
+            return LandingPage();
+        }
       },
     );
   }

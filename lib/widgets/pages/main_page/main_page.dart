@@ -4,7 +4,7 @@ import 'package:flutter_shop/widgets/pages/main_page/categories_tab.dart';
 import 'package:flutter_shop/widgets/pages/main_page/search_tab.dart';
 
 class MainPage extends StatelessWidget {
-  static const namedRoute = '/';
+  static const routeName = '/home';
 
   final List<Widget> _tabViews = const [
     ProductsTab(),

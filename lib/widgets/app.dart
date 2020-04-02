@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop/config/app_router.dart';
 import 'package:flutter_shop/models/state/app_state.dart';
 import 'package:flutter_shop/models/state/cart_state.dart';
-import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
+import 'package:flutter_shop/widgets/pages/landing_page.dart';
 import 'package:flutter_shop/widgets/themes/dark_theme.dart';
 import 'package:flutter_shop/widgets/themes/light_theme.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +26,7 @@ class App extends StatelessWidget {
           title: 'Flutter Shop',
           theme: kAppLightTheme,
           darkTheme: kAppDarkTheme,
-          initialRoute: MainPage.namedRoute,
+          initialRoute: LandingPage.routeName,
           onGenerateRoute: _router.onGenerateRoute,
         ),
       ),
