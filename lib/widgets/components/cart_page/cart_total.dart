@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/models/state/app_state_model.dart';
+import 'package:flutter_shop/models/state/cart_state.dart';
 import 'package:provider/provider.dart';
 
 class CartTotalValue extends StatelessWidget {
@@ -10,7 +10,7 @@ class CartTotalValue extends StatelessWidget {
     return Container(
       alignment: Alignment.centerRight,
       margin: EdgeInsets.all(16),
-      child: Consumer<AppStateModel>(
+      child: Consumer<CartState>(
         builder: (context, model, _) {
           return Text(
             'Total: R\$ ${model.totalCartValue.toStringAsFixed(2)}',

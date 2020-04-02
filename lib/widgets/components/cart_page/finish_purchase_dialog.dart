@@ -22,6 +22,6 @@ class FinishPurchaseDialog extends StatelessWidget {
   }
 
   void _cleanCart(BuildContext context) {
-    ProviderHelper.appState(context).cleanCart();
+    ProviderHelper.cartState(context).cleanCart();
   }
 }

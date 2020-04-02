@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/models/state/app_state_model.dart';
+import 'package:flutter_shop/models/state/cart_state.dart';
 import 'package:flutter_shop/widgets/components/cart_page/cart_list_item.dart';
 import 'package:provider/provider.dart';
 
@@ -8,8 +8,8 @@ class CartPageList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AppStateModel>(
-      builder: (BuildContext context, AppStateModel model, _) {
+    return Consumer<CartState>(
+      builder: (BuildContext context, CartState model, _) {
         return ListView.separated(
           shrinkWrap: true,
           physics: ClampingScrollPhysics(),

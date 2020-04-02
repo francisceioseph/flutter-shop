@@ -42,7 +42,7 @@ class ProductPage extends StatelessWidget {
                 ProductButton(
                   text: 'Add to Cart',
                   onPressed: () {
-                    ProviderHelper.appState(context).addProductToCart(product);
+                    ProviderHelper.cartState(context).addProductToCart(product);
                     _showSnackBar(context, 'Product added to chart!');
                   },
                 ),
