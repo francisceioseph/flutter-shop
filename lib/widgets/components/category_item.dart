@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/models/category.dart';
-import 'package:flutter_shop/models/state/app_state_model.dart';
 import 'package:flutter_shop/widgets/pages/products_page.dart';
-import 'package:provider/provider.dart';
 
 class CategoryItem extends StatelessWidget {
   final Category category;
@@ -21,11 +20,8 @@ class CategoryItem extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          final state = Provider.of<AppStateModel>(
-            context,
-            listen: false,
-          );
-          state.selectCategory(category.id);
+          final appState = ProviderHelper.appState(context);
+          appState.selectCategory(category.id);
 
           Navigator.of(context).pushNamed(ProductsPage.routeName);
         },

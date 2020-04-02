@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:flutter_shop/models/state/app_state_model.dart';
+import 'package:flutter_shop/helpers/provider_helper.dart';
 
 class FinishPurchaseDialog extends StatelessWidget {
   const FinishPurchaseDialog({Key key}) : super(key: key);
@@ -23,6 +22,6 @@ class FinishPurchaseDialog extends StatelessWidget {
   }
 
   void _cleanCart(BuildContext context) {
-    Provider.of<AppStateModel>(context, listen: false).cleanCart();
+    ProviderHelper.appState(context).cleanCart();
   }
 }

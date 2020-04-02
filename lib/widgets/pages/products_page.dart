@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/models/state/app_state_model.dart';
 import 'package:flutter_shop/widgets/components/product_item/product_item.dart';
 import 'package:flutter_shop/widgets/components/staggered_grid.dart';
@@ -11,7 +12,7 @@ class ProductsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appState = Provider.of<AppStateModel>(context, listen: false);
+    final appState = ProviderHelper.appState(context);
     appState.loadProducts();
 
     return SafeArea(

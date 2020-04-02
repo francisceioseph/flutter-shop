@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/models/state/app_state_model.dart';
 import 'package:flutter_shop/widgets/components/product_page/product_button.dart';
 import 'package:flutter_shop/widgets/components/product_page/product_carousel.dart';
@@ -41,8 +42,7 @@ class ProductPage extends StatelessWidget {
                 ProductButton(
                   text: 'Add to Cart',
                   onPressed: () {
-                    Provider.of<AppStateModel>(context, listen: false)
-                        .addProductToCart(product);
+                    ProviderHelper.appState(context).addProductToCart(product);
                     _showSnackBar(context, 'Product added to chart!');
                   },
                 ),

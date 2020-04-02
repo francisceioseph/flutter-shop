@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/models/state/app_state_model.dart';
 import 'package:flutter_shop/widgets/components/category_item.dart';
 import 'package:flutter_shop/widgets/components/staggered_grid.dart';
@@ -15,8 +16,7 @@ class _CategoriesTabState extends State<ProductsTab> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final provider = Provider.of<AppStateModel>(context, listen: false);
-    provider.loadCategories();
+    ProviderHelper.appState(context).loadCategories();
   }
 
   @override

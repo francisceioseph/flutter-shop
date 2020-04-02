@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/models/product.dart';
-import 'package:flutter_shop/models/state/app_state_model.dart';
 import 'package:flutter_shop/widgets/components/product_item/product_name_section.dart';
 import 'package:flutter_shop/widgets/components/product_item/product_old_price_section.dart';
 import 'package:flutter_shop/widgets/components/product_item/product_price_section.dart';
 import 'package:flutter_shop/widgets/pages/product_page.dart';
-import 'package:provider/provider.dart';
 
 class ProductItem extends StatelessWidget {
   final Product product;
@@ -24,8 +23,7 @@ class ProductItem extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          Provider.of<AppStateModel>(context, listen: false)
-              .selectProduct(product);
+          ProviderHelper.appState(context).selectProduct(product);
           Navigator.of(context).pushNamed(ProductPage.routeName);
         },
         child: Container(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/models/state/app_state_model.dart';
+import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/widgets/components/search_page/search_form.dart';
 import 'package:flutter_shop/widgets/components/search_page/search_result_grid.dart';
-import 'package:provider/provider.dart';
+import 'package:rxdart/rxdart.dart';
 
 class SearchTab extends StatefulWidget {
   const SearchTab({Key key}) : super(key: key);
@@ -15,6 +15,16 @@ class _SearchTabState extends State<SearchTab> {
   String content = '';
   final _formKey = GlobalKey<FormState>();
   final _controller = TextEditingController();
+  final _changeTextSubject = PublishSubject<String>();
+
+  @override
+  void initState() {
+    _changeTextSubject
+        .debounceTime(Duration(milliseconds: 500))
+        .listen(_onValueChanged);
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +42,7 @@ class _SearchTabState extends State<SearchTab> {
               child: SearchForm(
                 formKey: _formKey,
                 controller: _controller,
-                onValueChange: _onValueChange,
+                onValueChange: (String value) => _changeTextSubject.add(value),
                 onSubmitForm: _onSubmitForm,
               ),
             ),
@@ -43,15 +53,23 @@ class _SearchTabState extends State<SearchTab> {
     );
   }
 
-  void _onValueChange(String value) {
+  void _onValueChanged(String value) {
     setState(() {
       content = value;
-      Provider.of<AppStateModel>(context, listen: false)
-          .filterProducts(content);
     });
+
+    if (value.length > 3) {
+      _onSubmitForm();
+    }
   }
 
   void _onSubmitForm() {
-    Provider.of<AppStateModel>(context, listen: false).filterProducts(content);
+    ProviderHelper.appState(context).filterProducts(content);
+  }
+
+  @override
+  void dispose() {
+    _changeTextSubject.close();
+    super.dispose();
   }
 }
