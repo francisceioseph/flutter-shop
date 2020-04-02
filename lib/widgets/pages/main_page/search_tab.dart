@@ -51,30 +51,6 @@ class _SearchTabState extends State<SearchTab> {
         )
       ],
     );
-
-    // return Container(
-    //   margin: EdgeInsets.only(
-    //     top: 16,
-    //     right: 16,
-    //     left: 16,
-    //   ),
-    //   child: SingleChildScrollView(
-    //     child: Column(
-    //       children: <Widget>[
-    //         Container(
-    //           margin: EdgeInsets.only(bottom: 16),
-    //           child: SearchForm(
-    //             formKey: _formKey,
-    //             controller: _controller,
-    //             onValueChange: (String value) => _changeTextSubject.add(value),
-    //             onSubmitForm: _onSubmitForm,
-    //           ),
-    //         ),
-    //         SearchResultGrid(),
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
 
   void _onValueChanged(String value) {
