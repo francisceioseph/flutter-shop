@@ -40,12 +40,24 @@ class MainPage extends StatelessWidget {
             title: Text('Flutter Store'),
           ),
           body: TabBarView(children: _tabViews),
-          bottomNavigationBar: TabBar(
-            tabs: _tabs,
-            indicatorSize: TabBarIndicatorSize.label,
-            indicatorPadding: EdgeInsets.all(5.0),
-            indicatorColor: Theme.of(context).accentColor,
-            labelColor: Theme.of(context).accentColor,
+          bottomNavigationBar: Container(
+            margin: EdgeInsets.only(
+              right: 8,
+              left: 8,
+              bottom: 4,
+            ),
+            child: Card(
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(16))),
+              child: TabBar(
+                tabs: _tabs,
+                indicatorSize: TabBarIndicatorSize.label,
+                indicatorPadding: EdgeInsets.all(5.0),
+                indicatorColor: Theme.of(context).accentColor,
+                labelColor: Theme.of(context).accentColor,
+              ),
+            ),
           ),
         ),
       ),
