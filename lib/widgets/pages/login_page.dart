@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/widgets/components/divider_text.dart';
+import 'package:flutter_shop/widgets/components/login_page/login_form.dart';
+import 'package:flutter_shop/widgets/components/login_page/login_social.dart';
 
 class LoginPage extends StatelessWidget {
   static const routeName = '/login';
@@ -8,7 +11,24 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(),
+        appBar: AppBar(
+          title: Text('Login'),
+        ),
+        body: Container(
+          alignment: Alignment.center,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                LoginForm(),
+                DividerText(
+                  text: 'OR',
+                ),
+                SocialLogin(),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
