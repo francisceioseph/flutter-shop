@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class SocialLogin extends StatelessWidget {
-  const SocialLogin({Key key}) : super(key: key);
+  final void Function() onFacebookLoginPressed;
+  final void Function() onGoogleLoginPressed;
+
+  const SocialLogin({
+    Key key,
+    this.onFacebookLoginPressed,
+    this.onGoogleLoginPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +22,11 @@ class SocialLogin extends StatelessWidget {
           children: <Widget>[
             FlatButton(
               child: Text('Login with Facebook'),
-              onPressed: () {},
+              onPressed: onFacebookLoginPressed,
             ),
             FlatButton(
               child: Text('Login with Google'),
-              onPressed: () {},
+              onPressed: onGoogleLoginPressed,
             ),
           ],
         ),
