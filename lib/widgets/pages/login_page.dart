@@ -9,6 +9,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).primaryTextTheme;
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -20,6 +22,12 @@ class LoginPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                Text(
+                  'FlutterStore',
+                  style: textTheme.title.copyWith(
+                    fontSize: 32,
+                  ),
+                ),
                 LoginForm(),
                 DividerText(
                   text: 'OR',

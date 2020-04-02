@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SocialLogin extends StatelessWidget {
   final void Function() onFacebookLoginPressed;
@@ -20,12 +21,14 @@ class SocialLogin extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            FlatButton(
-              child: Text('Login with Facebook'),
+            FlatButton.icon(
+              icon: Icon(FontAwesomeIcons.facebook),
+              label: Text('Facebook'),
               onPressed: onFacebookLoginPressed,
             ),
-            FlatButton(
-              child: Text('Login with Google'),
+            FlatButton.icon(
+              icon: Icon(FontAwesomeIcons.google),
+              label: Text('Google'),
               onPressed: onGoogleLoginPressed,
             ),
           ],
