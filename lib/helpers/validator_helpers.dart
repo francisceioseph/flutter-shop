@@ -5,4 +5,12 @@ class ValidatorHelper {
     final regex = RegExp(kEmailRegex);
     return regex.hasMatch(value);
   }
+
+  static String validatePresence(String value) {
+    if (value.isEmpty) {
+      return "This field can't be empty";
+    }
+
+    return null;
+  }
 }
