@@ -11,8 +11,6 @@ class CartPageList extends StatelessWidget {
     return Consumer<CartState>(
       builder: (BuildContext context, CartState model, _) {
         return ListView.separated(
-          shrinkWrap: true,
-          physics: ClampingScrollPhysics(),
           itemCount: model.cartItems.length,
           itemBuilder: (BuildContext context, int index) {
             return CartListItem(
