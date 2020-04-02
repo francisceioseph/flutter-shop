@@ -25,7 +25,6 @@ class SearchForm extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: TextFormField(
-                autofocus: true,
                 controller: controller,
                 maxLength: null,
                 minLines: 1,

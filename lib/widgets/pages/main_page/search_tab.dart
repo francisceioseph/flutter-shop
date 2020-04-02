@@ -28,29 +28,53 @@ class _SearchTabState extends State<SearchTab> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-        top: 16,
-        right: 16,
-        left: 16,
-      ),
-      child: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(bottom: 16),
-              child: SearchForm(
-                formKey: _formKey,
-                controller: _controller,
-                onValueChange: (String value) => _changeTextSubject.add(value),
-                onSubmitForm: _onSubmitForm,
-              ),
-            ),
-            SearchResultGrid(),
-          ],
+    return Stack(
+      alignment: Alignment.center,
+      children: <Widget>[
+        Positioned(
+          top: 16,
+          right: 16,
+          left: 16,
+          child: SearchForm(
+            formKey: _formKey,
+            controller: _controller,
+            onValueChange: (String value) => _changeTextSubject.add(value),
+            onSubmitForm: _onSubmitForm,
+          ),
         ),
-      ),
+        Positioned(
+          top: 72,
+          bottom: 0,
+          right: 16,
+          left: 16,
+          child: SearchResultGrid(),
+        )
+      ],
     );
+
+    // return Container(
+    //   margin: EdgeInsets.only(
+    //     top: 16,
+    //     right: 16,
+    //     left: 16,
+    //   ),
+    //   child: SingleChildScrollView(
+    //     child: Column(
+    //       children: <Widget>[
+    //         Container(
+    //           margin: EdgeInsets.only(bottom: 16),
+    //           child: SearchForm(
+    //             formKey: _formKey,
+    //             controller: _controller,
+    //             onValueChange: (String value) => _changeTextSubject.add(value),
+    //             onSubmitForm: _onSubmitForm,
+    //           ),
+    //         ),
+    //         SearchResultGrid(),
+    //       ],
+    //     ),
+    //   ),
+    // );
   }
 
   void _onValueChanged(String value) {

@@ -13,8 +13,6 @@ class SearchResultGrid extends StatelessWidget {
       child: Consumer<AppState>(
         builder: (context, model, _) {
           return StaggeredGrid(
-            shrinkWrap: true,
-            physics: ClampingScrollPhysics(),
             itemCount: model.filteredProducts.length,
             itemBuilder: (BuildContext context, int index) {
               final product = model.filteredProducts[index];
