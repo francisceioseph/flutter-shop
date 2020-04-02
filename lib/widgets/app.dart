@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/config/app_router.dart';
-import 'package:flutter_shop/models/state/app_state_model.dart';
+import 'package:flutter_shop/models/state/app_state.dart';
 import 'package:flutter_shop/models/state/cart_state.dart';
 import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
 import 'package:flutter_shop/widgets/themes/dark_theme.dart';
@@ -14,8 +14,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<AppStateModel>(
-          create: (context) => AppStateModel(),
+        ChangeNotifierProvider<AppState>(
+          create: (context) => AppState(),
         ),
         ChangeNotifierProvider<CartState>(
           create: (context) => CartState(),

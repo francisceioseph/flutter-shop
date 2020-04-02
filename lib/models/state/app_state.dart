@@ -3,7 +3,7 @@ import 'package:flutter_shop/models/category.dart';
 import 'package:flutter_shop/models/product.dart';
 import 'package:flutter_shop/services/singleton.dart';
 
-class AppStateModel extends ChangeNotifier {
+class AppState extends ChangeNotifier {
   Product _selectedProduct;
   List<Category> _categories = [];
   List<Product> _products = [];

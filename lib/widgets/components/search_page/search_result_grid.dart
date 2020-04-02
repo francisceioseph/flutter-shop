@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/models/state/app_state_model.dart';
+import 'package:flutter_shop/models/state/app_state.dart';
 import 'package:flutter_shop/widgets/components/product_item/product_item.dart';
 import 'package:flutter_shop/widgets/components/staggered_grid.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +10,7 @@ class SearchResultGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Consumer<AppStateModel>(
+      child: Consumer<AppState>(
         builder: (context, model, _) {
           return StaggeredGrid(
             shrinkWrap: true,

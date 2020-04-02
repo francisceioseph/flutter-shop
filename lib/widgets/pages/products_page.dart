@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/helpers/provider_helper.dart';
-import 'package:flutter_shop/models/state/app_state_model.dart';
+import 'package:flutter_shop/models/state/app_state.dart';
 import 'package:flutter_shop/widgets/components/product_item/product_item.dart';
 import 'package:flutter_shop/widgets/components/staggered_grid.dart';
 import 'package:provider/provider.dart';
@@ -21,10 +21,10 @@ class ProductsPage extends StatelessWidget {
           title: Text(appState.currentCategory?.name),
         ),
         body: Container(
-          child: Consumer<AppStateModel>(
+          child: Consumer<AppState>(
             builder: (
               BuildContext context,
-              AppStateModel model,
+              AppState model,
               Widget child,
             ) {
               return StaggeredGrid(
