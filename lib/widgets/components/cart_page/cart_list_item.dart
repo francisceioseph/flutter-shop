@@ -23,7 +23,22 @@ class CartListItem extends StatelessWidget {
           cartItem.product.name,
           style: textTheme.title,
         ),
-        subtitle: Text('Subtotal: R\$ ${cartItem.subTotal.toStringAsFixed(2)}'),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('Unit price: ${cartItem.product.price}'),
+            Container(
+              margin: EdgeInsets.only(
+                top: 8,
+                bottom: 8,
+              ),
+              child: Text(
+                'Subtotal: R\$ ${cartItem.subTotal.toStringAsFixed(2)}',
+                style: Theme.of(context).primaryTextTheme.subhead,
+              ),
+            ),
+          ],
+        ),
         trailing: Chip(
           label: Text('${cartItem.amount}'),
         ),
