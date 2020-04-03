@@ -52,6 +52,7 @@ class _LoginFormState extends State<LoginForm> {
                 onFieldSaved: _onEmailFieldSaved,
               ),
               IconFormTextField(
+                obscureText: true,
                 labelText: 'Password',
                 hintText: 'Password Address',
                 leadingIcon: Icons.lock,

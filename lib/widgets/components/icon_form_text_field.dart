@@ -35,7 +35,7 @@ class IconFormTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: ListTile(
-        leading: Icon(this.leadingIcon),
+        leading: this.leadingIcon != null ? Icon(this.leadingIcon) : null,
         title: TextFormField(
           maxLines: this.maxLines,
           validator: this.validator,

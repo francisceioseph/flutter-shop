@@ -32,7 +32,7 @@ class RegisterFormController {
 
   String validateEmail(String value) {
     if (value.isEmpty) {
-      return "e-mail field can't be empty";
+      return "This field can't be empty";
     } else if (!ValidatorHelper.validateEmail(value)) {
       return "invalid email";
     }
@@ -46,7 +46,7 @@ class RegisterFormController {
 
   String validadePassword(String value) {
     if (value.isEmpty) {
-      return "password field can't be empty";
+      return "This field can't be empty";
     }
 
     return null;
@@ -58,7 +58,7 @@ class RegisterFormController {
 
   String validadePasswordConfirmation(String value) {
     if (value.isEmpty) {
-      return "password confirmation field can't be empty";
+      return "This field can't be empty";
     }
 
     return null;

@@ -30,6 +30,9 @@ class SearchForm extends StatelessWidget {
                 minLines: 1,
                 maxLines: 2,
                 onChanged: onValueChange,
+                decoration: InputDecoration(
+                  hintText: 'Search',
+                ),
               ),
             ),
             IconButton(
