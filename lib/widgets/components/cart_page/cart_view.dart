@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop/models/state/cart_state.dart';
 import 'package:flutter_shop/widgets/components/cart_page/cart_page_list.dart';
 import 'package:flutter_shop/widgets/components/cart_page/cart_total.dart';
-import 'package:flutter_shop/widgets/components/cart_page/finish_purchase_dialog.dart';
 import 'package:flutter_shop/widgets/components/simple_outline_button.dart';
+import 'package:flutter_shop/widgets/pages/place_order_page.dart';
 
 class CartView extends StatelessWidget {
   final CartState cart;
@@ -35,22 +35,13 @@ class CartView extends StatelessWidget {
             right: 16,
             child: SimpleOutlineButton(
               onPressed: () {
-                _showFinishPruchaseDialog(context);
+                Navigator.pushNamed(context, PlaceOrderPage.routeName);
               },
               child: Text('Finish Purchase'),
             ),
           )
         ],
       ),
-    );
-  }
-
-  void _showFinishPruchaseDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return FinishPurchaseDialog();
-      },
     );
   }
 }

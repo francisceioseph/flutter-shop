@@ -7,6 +7,14 @@ class PageSliderController {
     int initialPage = 0,
   }) : pageController = PageController(initialPage: initialPage);
 
+  void back() {
+    int page = pageController.page.toInt();
+
+    if (page > 0) {
+      animateTo(page - 1);
+    }
+  }
+
   void next() {
     animateTo(pageController.page.toInt() + 1);
   }

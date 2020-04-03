@@ -6,11 +6,11 @@ import 'package:flutter_shop/widgets/components/simple_outline_button.dart';
 import 'package:provider/provider.dart';
 
 class CartReviewStep extends StatelessWidget {
-  final void Function() onSubmit;
+  final void Function() onNextTap;
 
   const CartReviewStep({
     Key key,
-    this.onSubmit,
+    this.onNextTap,
   }) : super(key: key);
 
   @override
@@ -23,16 +23,14 @@ class CartReviewStep extends StatelessWidget {
             children: [
               Expanded(child: CartPageList(cart: model)),
               CartTotalValue(cart: model),
-              Container(
+              SimpleOutlineButton(
                 margin: EdgeInsets.only(
                   left: 16,
                   right: 16,
                   bottom: 16,
                 ),
-                child: SimpleOutlineButton(
-                  child: Text('next'),
-                  onPressed: onSubmit,
-                ),
+                child: Text('next'),
+                onPressed: onNextTap,
               )
             ],
           );

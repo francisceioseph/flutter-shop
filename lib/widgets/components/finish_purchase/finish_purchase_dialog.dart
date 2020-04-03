@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/widgets/pages/place_order_page.dart';
+import 'package:flutter_shop/helpers/provider_helper.dart';
 
 class FinishPurchaseDialog extends StatelessWidget {
   const FinishPurchaseDialog({Key key}) : super(key: key);
@@ -12,8 +12,9 @@ class FinishPurchaseDialog extends StatelessWidget {
       actions: <Widget>[
         FlatButton(
           onPressed: () {
+            ProviderHelper.cartState(context).cleanCart();
             Navigator.of(context).pop();
-            Navigator.of(context).pushNamed(PlaceOrderPage.routeName);
+            Navigator.of(context).pop();
           },
           child: Text('OK'),
         ),

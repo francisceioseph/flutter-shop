@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/controllers/page_slider_controller.dart';
+import 'package:flutter_shop/widgets/components/finish_purchase/finish_purchase_dialog.dart';
 import 'package:flutter_shop/widgets/components/finish_purchase/steps/cart_review_step.dart';
 import 'package:flutter_shop/widgets/components/finish_purchase/steps/confirm_order_step.dart';
 import 'package:flutter_shop/widgets/components/finish_purchase/steps/finish_order_step.dart';
@@ -30,24 +31,41 @@ class _PurchaseSwiperState extends State<PurchaseSwiper> {
         controller: _controller,
         children: <Widget>[
           CartReviewStep(
-            onSubmit: _onSubmitStep,
+            onNextTap: _onNextTap,
           ),
           ShippingStep(
-            onSubmit: _onSubmitStep,
+            onNextTap: _onNextTap,
+            onBackTap: _onBackTap,
           ),
           PaymentStep(
-            onSubmit: _onSubmitStep,
+            onNextTap: _onNextTap,
+            onBackTap: _onBackTap,
           ),
           ConfirmOrderStep(
-            onSubmit: _onSubmitStep,
+            onNextTap: _onNextTap,
+            onBackTap: _onBackTap,
           ),
-          FinishOrderStep(),
+          FinishOrderStep(
+            onNextTap: _onFinishPurchase,
+            onBackTap: _onBackTap,
+          ),
         ],
       ),
     );
   }
 
-  void _onSubmitStep() {
+  void _onNextTap() {
     _controller.next();
+  }
+
+  void _onFinishPurchase() {
+    showDialog(
+      context: context,
+      child: FinishPurchaseDialog(),
+    );
+  }
+
+  void _onBackTap() {
+    _controller.back();
   }
 }
