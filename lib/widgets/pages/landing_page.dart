@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/widgets/components/landing_page/landing_buttons.dart';
 import 'package:flutter_shop/widgets/components/landing_page/landing_logo.dart';
-import 'package:flutter_shop/widgets/components/landing_page/landing_page_footer.dart';
-import 'package:flutter_shop/widgets/components/landing_page/landing_register_button.dart';
 import 'package:flutter_shop/widgets/pages/login_page.dart';
 import 'package:flutter_shop/widgets/pages/register_page.dart';
 
@@ -19,15 +18,19 @@ class LandingPage extends StatelessWidget {
         body: Container(
           alignment: Alignment.center,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              const LandingLogo(),
-              LandingRegisterButton(
-                onPressed: () => _registerPressedHandler(context),
+              Expanded(
+                child: Container(),
               ),
-              LandingPageFooter(
-                onLoginButtonPressed: () => _loginPressedHandler(context),
+              LandingLogo(),
+              Expanded(
+                child: Container(),
+              ),
+              LandingButtons(
+                onLoginTap: () => _onLoginTap(context),
+                onRegisterTap: () => _onRegisterTap(context),
               ),
             ],
           ),
@@ -36,11 +39,11 @@ class LandingPage extends StatelessWidget {
     );
   }
 
-  void _registerPressedHandler(BuildContext context) {
+  void _onRegisterTap(BuildContext context) {
     Navigator.of(context).pushNamed(RegisterPage.routeName);
   }
 
-  void _loginPressedHandler(BuildContext context) {
+  void _onLoginTap(BuildContext context) {
     Navigator.of(context).pushNamed(LoginPage.routeName);
   }
 }

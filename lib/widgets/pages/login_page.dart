@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop/widgets/components/divider_text.dart';
 import 'package:flutter_shop/widgets/components/login_page/login_form.dart';
 import 'package:flutter_shop/widgets/components/login_page/login_social.dart';
+import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
 
 class LoginPage extends StatelessWidget {
   static const routeName = '/login';
@@ -32,12 +33,22 @@ class LoginPage extends StatelessWidget {
                 DividerText(
                   text: 'OR',
                 ),
-                SocialLogin(),
+                SocialLogin(
+                  onGoogleTap: () => _goToMainPage(context),
+                  onFacebookTap: () => _goToMainPage(context),
+                ),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  void _goToMainPage(BuildContext context) {
+    Navigator.of(context).pushNamedAndRemoveUntil(
+      MainPage.routeName,
+      (_) => false,
     );
   }
 }

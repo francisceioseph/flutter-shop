@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop/widgets/components/divider_text.dart';
 import 'package:flutter_shop/widgets/components/register_page/register_form.dart';
 import 'package:flutter_shop/widgets/components/register_page/register_social.dart';
+import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
 
 class RegisterPage extends StatelessWidget {
   static const routeName = '/register';
@@ -33,12 +34,22 @@ class RegisterPage extends StatelessWidget {
                 DividerText(
                   text: 'OR',
                 ),
-                RegisterSocial(),
+                RegisterSocial(
+                  onGoogleTap: () => _goToMainPage(context),
+                  onFacebookTap: () => _goToMainPage(context),
+                ),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  void _goToMainPage(BuildContext context) {
+    Navigator.of(context).pushNamedAndRemoveUntil(
+      MainPage.routeName,
+      (_) => false,
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter_shop/widgets/pages/landing_page.dart';
 import 'package:flutter_shop/widgets/pages/login_page.dart';
 import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
 import 'package:flutter_shop/widgets/pages/product_page.dart';
+import 'package:flutter_shop/widgets/pages/products_page.dart';
 import 'package:flutter_shop/widgets/pages/register_page.dart';
 
 class AppRouter {
@@ -12,6 +13,9 @@ class AppRouter {
         switch (settings.name) {
           case MainPage.routeName:
             return MainPage();
+
+          case ProductsPage.routeName:
+            return ProductsPage();
 
           case ProductPage.routeName:
             return ProductPage();

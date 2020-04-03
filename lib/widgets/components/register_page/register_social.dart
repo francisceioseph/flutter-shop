@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RegisterSocial extends StatelessWidget {
-  final void Function() onFacebookLoginPressed;
-  final void Function() onGoogleLoginPressed;
+  final void Function() onFacebookTap;
+  final void Function() onGoogleTap;
 
   const RegisterSocial({
     Key key,
-    this.onFacebookLoginPressed,
-    this.onGoogleLoginPressed,
+    this.onFacebookTap,
+    this.onGoogleTap,
   }) : super(key: key);
 
   @override
@@ -24,12 +24,12 @@ class RegisterSocial extends StatelessWidget {
             FlatButton.icon(
               icon: Icon(FontAwesomeIcons.facebook),
               label: Text('Facebook'),
-              onPressed: onFacebookLoginPressed,
+              onPressed: onFacebookTap,
             ),
             FlatButton.icon(
               icon: Icon(FontAwesomeIcons.google),
               label: Text('Google'),
-              onPressed: onGoogleLoginPressed,
+              onPressed: onGoogleTap,
             ),
           ],
         ),

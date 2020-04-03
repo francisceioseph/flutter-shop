@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SocialLogin extends StatelessWidget {
-  final void Function() onFacebookTap;
-  final void Function() onGoogleTap;
+class LandingButtons extends StatelessWidget {
+  final void Function() onRegisterTap;
+  final void Function() onLoginTap;
 
-  const SocialLogin({
+  const LandingButtons({
     Key key,
-    this.onFacebookTap,
-    this.onGoogleTap,
+    this.onRegisterTap,
+    this.onLoginTap,
   }) : super(key: key);
 
   @override
@@ -22,14 +22,17 @@ class SocialLogin extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             FlatButton.icon(
-              icon: Icon(FontAwesomeIcons.facebook),
-              label: Text('Facebook'),
-              onPressed: onFacebookTap,
+              icon: Icon(FontAwesomeIcons.pencilAlt),
+              label: Text('Register Now'),
+              onPressed: onRegisterTap,
+            ),
+            VerticalDivider(
+              color: Colors.red,
             ),
             FlatButton.icon(
-              icon: Icon(FontAwesomeIcons.google),
-              label: Text('Google'),
-              onPressed: onGoogleTap,
+              icon: Icon(FontAwesomeIcons.signInAlt),
+              label: Text('Sign In'),
+              onPressed: onLoginTap,
             ),
           ],
         ),

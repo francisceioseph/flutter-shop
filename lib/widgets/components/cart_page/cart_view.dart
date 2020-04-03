@@ -33,6 +33,11 @@ class CartView extends StatelessWidget {
             left: 16,
             right: 16,
             child: OutlineButton(
+              color: Theme.of(context).accentColor,
+              textColor: Theme.of(context).accentColor,
+              borderSide: BorderSide(
+                color: Theme.of(context).accentColor,
+              ),
               onPressed: () {
                 _showFinishPruchaseDialog(context);
               },

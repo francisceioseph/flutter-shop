@@ -24,8 +24,11 @@ class ProductButton extends StatelessWidget {
       ),
       child: SizedBox.expand(
         child: OutlineButton(
-          color: color ?? Theme.of(context).buttonColor,
-          textColor: color ?? Theme.of(context).buttonColor,
+          color: color ?? Theme.of(context).accentColor,
+          textColor: color ?? Theme.of(context).accentColor,
+          borderSide: BorderSide(
+            color: color ?? Theme.of(context).accentColor,
+          ),
           onPressed: onPressed,
           child: Text(text),
         ),
