@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/models/state/cart_state.dart';
+import 'package:flutter_shop/widgets/components/cart_page/cart_page_list.dart';
+import 'package:flutter_shop/widgets/components/cart_page/cart_total.dart';
+import 'package:flutter_shop/widgets/components/simple_outline_button.dart';
+import 'package:provider/provider.dart';
 
 class CartReviewStep extends StatelessWidget {
   final void Function() onSubmit;
@@ -11,11 +16,27 @@ class CartReviewStep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(
-        child: FlatButton(
-          child: Text('step'),
-          onPressed: onSubmit,
-        ),
+      child: Consumer<CartState>(
+        builder: (context, model, _) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(child: CartPageList(cart: model)),
+              CartTotalValue(cart: model),
+              Container(
+                margin: EdgeInsets.only(
+                  left: 16,
+                  right: 16,
+                  bottom: 16,
+                ),
+                child: SimpleOutlineButton(
+                  child: Text('next'),
+                  onPressed: onSubmit,
+                ),
+              )
+            ],
+          );
+        },
       ),
     );
   }

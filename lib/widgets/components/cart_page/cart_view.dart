@@ -3,6 +3,7 @@ import 'package:flutter_shop/models/state/cart_state.dart';
 import 'package:flutter_shop/widgets/components/cart_page/cart_page_list.dart';
 import 'package:flutter_shop/widgets/components/cart_page/cart_total.dart';
 import 'package:flutter_shop/widgets/components/cart_page/finish_purchase_dialog.dart';
+import 'package:flutter_shop/widgets/components/simple_outline_button.dart';
 
 class CartView extends StatelessWidget {
   final CartState cart;
@@ -32,12 +33,7 @@ class CartView extends StatelessWidget {
             bottom: 16,
             left: 16,
             right: 16,
-            child: OutlineButton(
-              color: Theme.of(context).accentColor,
-              textColor: Theme.of(context).accentColor,
-              borderSide: BorderSide(
-                color: Theme.of(context).accentColor,
-              ),
+            child: SimpleOutlineButton(
               onPressed: () {
                 _showFinishPruchaseDialog(context);
               },

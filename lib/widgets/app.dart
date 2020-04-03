@@ -3,7 +3,6 @@ import 'package:flutter_shop/config/app_router.dart';
 import 'package:flutter_shop/models/state/app_state.dart';
 import 'package:flutter_shop/models/state/cart_state.dart';
 import 'package:flutter_shop/widgets/pages/landing_page.dart';
-import 'package:flutter_shop/widgets/pages/place_order_page.dart';
 import 'package:flutter_shop/widgets/themes/dark_theme.dart';
 import 'package:flutter_shop/widgets/themes/light_theme.dart';
 import 'package:provider/provider.dart';
