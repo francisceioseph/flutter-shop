@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/simple_outline_button.dart';
 
 class FinishOrderStep extends StatelessWidget {
@@ -13,6 +14,7 @@ class FinishOrderStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final translator = AppLocalizations.of(context);
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -24,7 +26,9 @@ class FinishOrderStep extends StatelessWidget {
               right: 16,
               bottom: 8,
             ),
-            child: Text('back'),
+            child: Text(
+              translator.translate('previous_button_text'),
+            ),
             onPressed: onBackTap,
           ),
           SimpleOutlineButton(
@@ -33,7 +37,9 @@ class FinishOrderStep extends StatelessWidget {
               right: 16,
               bottom: 16,
             ),
-            child: Text('finish purchase'),
+            child: Text(
+              translator.translate("finish_purchase_text"),
+            ),
             onPressed: onNextTap,
           )
         ],

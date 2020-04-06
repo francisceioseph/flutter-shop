@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/models/state/cart_state.dart';
+import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/cart_page/cart_view.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +17,7 @@ class CartTab extends StatelessWidget {
             child: CartView(cart: cart),
             replacement: Center(
               child: Text(
-                'There is no item in your cart',
+                AppLocalizations.of(context).translate('empty_cart_text'),
                 style: Theme.of(context).primaryTextTheme.title,
               ),
             ),

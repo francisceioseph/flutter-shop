@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/models/state/app_state.dart';
+import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/product_page/product_button.dart';
 import 'package:flutter_shop/widgets/components/product_page/product_carousel.dart';
 import 'package:flutter_shop/widgets/components/product_page/product_description.dart';
@@ -15,6 +16,8 @@ class ProductPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final translator = AppLocalizations.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Product Details'),
@@ -40,14 +43,15 @@ class ProductPage extends StatelessWidget {
                   product: product,
                 ),
                 ProductButton(
-                  text: 'Add to Cart',
+                  text: translator.translate('add_to_chart_button_text'),
                   onPressed: () {
                     ProviderHelper.cartState(context).addProductToCart(product);
-                    _showSnackBar(context, 'Product added to chart!');
+                    _showSnackBar(
+                        context, translator.translate('product_addded_text'));
                   },
                 ),
                 ProductButton(
-                  text: 'Buy Now',
+                  text: translator.translate('buy_button_text'),
                   color: Theme.of(context).accentColor,
                   onPressed: () {},
                 )

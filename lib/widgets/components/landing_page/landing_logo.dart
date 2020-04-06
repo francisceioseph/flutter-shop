@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/services/app_localizations.dart';
 
 class LandingLogo extends StatelessWidget {
   const LandingLogo({Key key}) : super(key: key);
@@ -6,6 +7,7 @@ class LandingLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).primaryTextTheme;
+    final _translator = AppLocalizations.of(context);
 
     return Container(
       margin: EdgeInsets.only(
@@ -26,7 +28,10 @@ class LandingLogo extends StatelessWidget {
                   right: 16,
                   left: 16,
                 ),
-                child: Text('Flutter Store', style: textTheme.title),
+                child: Text(
+                  _translator.translate('app_title'),
+                  style: textTheme.title,
+                ),
               ),
               Container(
                 margin: EdgeInsets.only(
@@ -35,7 +40,10 @@ class LandingLogo extends StatelessWidget {
                   right: 16,
                   left: 16,
                 ),
-                child: Text('A simple store for you', style: textTheme.subhead),
+                child: Text(
+                  _translator.translate('landing_logo_text'),
+                  style: textTheme.subhead,
+                ),
               ),
             ],
           ),

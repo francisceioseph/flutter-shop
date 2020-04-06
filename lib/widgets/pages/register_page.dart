@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/divider_text.dart';
 import 'package:flutter_shop/widgets/components/register_page/register_form.dart';
 import 'package:flutter_shop/widgets/components/register_page/register_social.dart';
@@ -12,11 +13,14 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).primaryTextTheme;
+    final translator = AppLocalizations.of(context);
 
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Register'),
+          title: Text(
+            translator.translate('register_app_bar'),
+          ),
         ),
         body: Container(
           alignment: Alignment.center,
@@ -25,14 +29,14 @@ class RegisterPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'FlutterStore',
+                  translator.translate('app_title'),
                   style: textTheme.title.copyWith(
                     fontSize: 32,
                   ),
                 ),
                 RegisterForm(),
                 DividerText(
-                  text: 'OR',
+                  text: translator.translate('login_or_text'),
                 ),
                 RegisterSocial(
                   onGoogleTap: () => _goToMainPage(context),

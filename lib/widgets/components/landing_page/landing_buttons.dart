@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LandingButtons extends StatelessWidget {
@@ -13,6 +14,8 @@ class LandingButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final translator = AppLocalizations.of(context);
+
     return Card(
       margin: EdgeInsets.all(16),
       elevation: 2,
@@ -23,7 +26,9 @@ class LandingButtons extends StatelessWidget {
           children: <Widget>[
             FlatButton.icon(
               icon: Icon(FontAwesomeIcons.pencilAlt),
-              label: Text('Register Now'),
+              label: Text(
+                translator.translate('landing_register_now'),
+              ),
               onPressed: onRegisterTap,
             ),
             VerticalDivider(
@@ -31,7 +36,9 @@ class LandingButtons extends StatelessWidget {
             ),
             FlatButton.icon(
               icon: Icon(FontAwesomeIcons.signInAlt),
-              label: Text('Sign In'),
+              label: Text(
+                translator.translate('landing_sign_in'),
+              ),
               onPressed: onLoginTap,
             ),
           ],

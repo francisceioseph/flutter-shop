@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/controllers/register_form_controller.dart';
+import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/icon_form_text_field.dart';
 import 'package:flutter_shop/widgets/components/outline_form_button.dart';
 import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
@@ -29,6 +30,8 @@ class _RegisterFormState extends State<RegisterForm> {
 
   @override
   Widget build(BuildContext context) {
+    final translator = AppLocalizations.of(context);
+
     return Form(
       key: _formKey,
       child: Card(
@@ -43,8 +46,8 @@ class _RegisterFormState extends State<RegisterForm> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               IconFormTextField(
-                labelText: 'First Name',
-                hintText: 'Your first name',
+                labelText: translator.translate('first_name_label_text'),
+                hintText: translator.translate('first_name_hint_text'),
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.next,
                 focusNode: _controller.firstNameFocusNode,
@@ -53,8 +56,8 @@ class _RegisterFormState extends State<RegisterForm> {
                 onFieldSaved: _onFirstNameSaved,
               ),
               IconFormTextField(
-                labelText: 'Last Name',
-                hintText: 'Your last name',
+                labelText: translator.translate('last_name_label_text'),
+                hintText: translator.translate('last_name_hint_text'),
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.next,
                 focusNode: _controller.lastNameFocusNode,
@@ -63,8 +66,8 @@ class _RegisterFormState extends State<RegisterForm> {
                 onFieldSaved: _onLastNameSaved,
               ),
               IconFormTextField(
-                labelText: 'E-mail',
-                hintText: 'Your e-mail address',
+                labelText: translator.translate('email_label_text'),
+                hintText: translator.translate('email_hint_text'),
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
                 focusNode: _controller.emailFocusNode,
@@ -73,8 +76,9 @@ class _RegisterFormState extends State<RegisterForm> {
                 onFieldSaved: _onEmailFieldSaved,
               ),
               IconFormTextField(
+                labelText: translator.translate('password_label_text'),
+                hintText: translator.translate('password_hint_text'),
                 obscureText: true,
-                hintText: 'Your password',
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.next,
                 focusNode: _controller.passwordFocusNode,
@@ -93,7 +97,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 onFieldSaved: _onPasswordConfirmationFieldSaved,
               ),
               OutlineFormButton(
-                text: 'log in',
+                text: translator.translate('register_button_text'),
                 onPressed: _onSubmit,
               )
             ],

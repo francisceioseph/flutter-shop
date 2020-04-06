@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/models/state/cart_state.dart';
+import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/cart_page/cart_page_list.dart';
 import 'package:flutter_shop/widgets/components/cart_page/cart_total.dart';
 import 'package:flutter_shop/widgets/components/simple_outline_button.dart';
@@ -29,7 +30,9 @@ class CartReviewStep extends StatelessWidget {
                   right: 16,
                   bottom: 16,
                 ),
-                child: Text('next'),
+                child: Text(
+                  AppLocalizations.of(context).translate('next_button_text'),
+                ),
                 onPressed: onNextTap,
               )
             ],

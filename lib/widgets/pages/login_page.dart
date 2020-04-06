@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/divider_text.dart';
 import 'package:flutter_shop/widgets/components/login_page/login_form.dart';
 import 'package:flutter_shop/widgets/components/login_page/login_social.dart';
@@ -11,11 +12,14 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).primaryTextTheme;
+    final translatorManager = AppLocalizations.of(context);
 
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Login'),
+          title: Text(
+            translatorManager.translate('login_app_bar'),
+          ),
         ),
         body: Container(
           alignment: Alignment.center,
@@ -24,14 +28,14 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'FlutterStore',
+                  translatorManager.translate('app_title'),
                   style: textTheme.title.copyWith(
                     fontSize: 32,
                   ),
                 ),
                 LoginForm(),
                 DividerText(
-                  text: 'OR',
+                  text: translatorManager.translate('login_or_text'),
                 ),
                 SocialLogin(
                   onGoogleTap: () => _goToMainPage(context),

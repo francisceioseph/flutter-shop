@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/controllers/login_form_controller.dart';
+import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/icon_form_text_field.dart';
 import 'package:flutter_shop/widgets/components/outline_form_button.dart';
 import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
@@ -28,6 +29,8 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
+    final _translator = AppLocalizations.of(context);
+
     return Form(
       key: _formKey,
       child: Card(
@@ -42,8 +45,8 @@ class _LoginFormState extends State<LoginForm> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               IconFormTextField(
-                labelText: 'E-mail',
-                hintText: 'Your e-mail address',
+                labelText: _translator.translate("email_label_text"),
+                hintText: _translator.translate('email_hint_text'),
                 leadingIcon: Icons.email,
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
@@ -53,8 +56,8 @@ class _LoginFormState extends State<LoginForm> {
               ),
               IconFormTextField(
                 obscureText: true,
-                labelText: 'Password',
-                hintText: 'Password Address',
+                labelText: _translator.translate('password_label_text'),
+                hintText: _translator.translate('password_hint_text'),
                 leadingIcon: Icons.lock,
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.done,
@@ -63,7 +66,7 @@ class _LoginFormState extends State<LoginForm> {
                 onFieldSaved: _onPasswordFieldSaved,
               ),
               OutlineFormButton(
-                text: 'log in',
+                text: _translator.translate('login_button_text'),
                 onPressed: _onSubmit,
               )
             ],

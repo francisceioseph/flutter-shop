@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/services/app_localizations.dart';
 
 class SearchForm extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -16,6 +17,8 @@ class SearchForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final translator = AppLocalizations.of(context);
+
     return Container(
       child: Form(
         key: formKey,
@@ -31,7 +34,7 @@ class SearchForm extends StatelessWidget {
                 maxLines: 2,
                 onChanged: onValueChange,
                 decoration: InputDecoration(
-                  hintText: 'Search',
+                  hintText: translator.translate('search_label_text'),
                 ),
               ),
             ),

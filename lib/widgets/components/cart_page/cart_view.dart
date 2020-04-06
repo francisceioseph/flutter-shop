@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/models/state/cart_state.dart';
+import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/cart_page/cart_page_list.dart';
 import 'package:flutter_shop/widgets/components/cart_page/cart_total.dart';
 import 'package:flutter_shop/widgets/components/simple_outline_button.dart';
@@ -37,7 +38,9 @@ class CartView extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, PlaceOrderPage.routeName);
               },
-              child: Text('Finish Purchase'),
+              child: Text(
+                AppLocalizations.of(context).translate('finish_purchase_text'),
+              ),
             ),
           )
         ],

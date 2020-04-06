@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/models/cart_item.dart';
+import 'package:flutter_shop/services/app_localizations.dart';
 
 class CartListItem extends StatelessWidget {
   final CartItem cartItem;
@@ -12,6 +13,7 @@ class CartListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).primaryTextTheme;
+    final translator = AppLocalizations.of(context);
 
     return Container(
       child: ListTile(
@@ -26,7 +28,8 @@ class CartListItem extends StatelessWidget {
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Unit price: ${cartItem.product.price}'),
+            Text(
+                '${translator.translate('cart_unit_price_text')} ${cartItem.product.price}'),
             Container(
               margin: EdgeInsets.only(
                 top: 8,
