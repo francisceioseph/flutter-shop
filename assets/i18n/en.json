@@ -42,5 +42,10 @@
   "city_hint_text": "city",
   "zip_label_text": "zip",
   "zip_hint_text": "zip",
-  "shipping_title_text": "add shipping information"
+  "shipping_title_text": "add shipping information",
+  "payment_title_text": "payment information",
+  "user_card_name_label_text": "name on card",
+  "card_number_label_text": "card number",
+  "card_expire_date_label_text": "expire date",
+  "card_cvc_label_text": "cvc"
 }

@@ -42,5 +42,10 @@
   "city_hint_text": "cidade",
   "zip_label_text": "cep",
   "zip_hint_text": "cep",
-  "shipping_title_text": "informações de envio"
+  "shipping_title_text": "informações de envio",
+  "payment_title_text": "informações de pagamento",
+  "user_card_name_label_text": "nome no cartão",
+  "card_number_label_text": "número do cartão",
+  "card_expire_date_label_text": "data de vencimento",
+  "card_cvc_label_text": "ccv"
 }

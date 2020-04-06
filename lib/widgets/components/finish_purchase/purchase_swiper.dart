@@ -5,7 +5,7 @@ import 'package:flutter_shop/widgets/components/finish_purchase/finish_purchase_
 import 'package:flutter_shop/widgets/components/finish_purchase/shipping_step/shipping_step.dart';
 import 'package:flutter_shop/widgets/components/finish_purchase/steps/confirm_order_step.dart';
 import 'package:flutter_shop/widgets/components/finish_purchase/steps/finish_order_step.dart';
-import 'package:flutter_shop/widgets/components/finish_purchase/steps/payment_step.dart';
+import 'package:flutter_shop/widgets/components/finish_purchase/payment_step/payment_step.dart';
 import 'package:flutter_shop/widgets/components/page_slider.dart';
 
 class PurchaseSwiper extends StatefulWidget {
