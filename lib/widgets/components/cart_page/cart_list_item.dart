@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/models/cart_item.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
+import 'package:flutter_shop/widgets/components/cached_image.dart';
 
 class CartListItem extends StatelessWidget {
   final CartItem cartItem;
@@ -19,7 +20,9 @@ class CartListItem extends StatelessWidget {
       child: ListTile(
         leading: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(8)),
-          child: Image.network(cartItem.product.firstImage),
+          child: CachedImage(
+            url: cartItem.product.firstImage,
+          ),
         ),
         title: Text(
           cartItem.product.name,

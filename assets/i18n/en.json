@@ -29,5 +29,18 @@
   "cart_unit_price_text": "unit price",
   "finish_purchase_text": "finish purchase",
   "next_button_text": "next",
-  "previous_button_text": "previous"
+  "previous_button_text": "previous",
+  "full_name_label_text": "full name",
+  "full_name_hint_text": "full name",
+  "address_label_text": "address",
+  "address_hint_text": "address",
+  "country_label_text": "country",
+  "country_hint_text": "country",
+  "state_label_text": "state",
+  "state_hint_text": "state",
+  "city_label_text": "city",
+  "city_hint_text": "city",
+  "zip_label_text": "zip",
+  "zip_hint_text": "zip",
+  "shipping_title_text": "add shipping information"
 }

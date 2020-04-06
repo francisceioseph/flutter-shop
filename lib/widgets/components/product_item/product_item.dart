@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/models/product.dart';
+import 'package:flutter_shop/widgets/components/cached_image.dart';
 import 'package:flutter_shop/widgets/components/product_item/product_name_section.dart';
 import 'package:flutter_shop/widgets/components/product_item/product_old_price_section.dart';
 import 'package:flutter_shop/widgets/components/product_item/product_price_section.dart';
@@ -36,7 +37,7 @@ class ProductItem extends StatelessWidget {
                 padding: EdgeInsets.only(bottom: 16),
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(8)),
-                  child: Image.network(product.firstImage),
+                  child: CachedImage(url: product.firstImage),
                 ),
               ),
               ProductOldPriceSection(

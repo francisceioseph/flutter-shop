@@ -29,5 +29,18 @@
   "cart_unit_price_text": "preço unitário",
   "finish_purchase_text": "finalizar pedido",
   "next_button_text": "próximo",
-  "previous_button_text": "anterior"
+  "previous_button_text": "anterior",
+  "full_name_label_text": "nome completo",
+  "full_name_hint_text": "nome completo",
+  "address_label_text": "endereço",
+  "address_hint_text": "endereço",
+  "country_label_text": "país",
+  "country_hint_text": "país",
+  "state_label_text": "estado",
+  "state_hint_text": "estado",
+  "city_label_text": "cidade",
+  "city_hint_text": "cidade",
+  "zip_label_text": "cep",
+  "zip_hint_text": "cep",
+  "shipping_title_text": "informações de envio"
 }

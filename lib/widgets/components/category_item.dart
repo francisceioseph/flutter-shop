@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/models/category.dart';
+import 'package:flutter_shop/widgets/components/cached_image.dart';
 import 'package:flutter_shop/widgets/pages/products_page.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -32,7 +33,7 @@ class CategoryItem extends StatelessWidget {
               ClipRRect(
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(8)),
-                  child: Image.network(category.imageUrl),
+                  child: CachedImage(url: category.imageUrl),
                 ),
               ),
               Container(

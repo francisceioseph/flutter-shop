@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/widgets/components/cached_image.dart';
 
 class ProductCarousel extends StatelessWidget {
   final List<String> images;
@@ -27,8 +28,8 @@ class ProductCarousel extends StatelessWidget {
             padding: EdgeInsets.all(8),
             child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(8)),
-              child: Image.network(
-                imageSource,
+              child: CachedImage(
+                url: imageSource,
                 fit: BoxFit.cover,
               ),
             ),
