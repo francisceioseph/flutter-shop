@@ -71,9 +71,9 @@ class _PersonalTabFormState extends State<PersonalTabForm> {
                   left: 8,
                   right: 8,
                 ),
-                child: Text('save'),
+                child: Text(translator.translate('save')),
                 onPressed: _submit,
-              )
+              ),
             ],
           ),
         ),

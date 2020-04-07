@@ -63,5 +63,6 @@
   "phone_label_text": "telefone",
   "personal": "pessoal",
   "password": "senha",
-  "shipping": "endereço"
+  "shipping": "endereço",
+  "save": "salvar"
 }

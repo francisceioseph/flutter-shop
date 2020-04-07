@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/profile_page/personal_tab.dart';
 import 'package:flutter_shop/widgets/components/profile_page/profile_page_header.dart';
+import 'package:flutter_shop/widgets/components/profile_page/shipping_tab.dart';
 
 class ProfilePage extends StatefulWidget {
   static const routeName = '/profile';
@@ -58,7 +59,7 @@ class _ProfilePageState extends State<ProfilePage>
                 controller: controller,
                 children: <Widget>[
                   PersonalTab(),
-                  Container(),
+                  ShippingTab(),
                   Container(),
                 ],
               ),

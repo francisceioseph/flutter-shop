@@ -2,20 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop/controllers/shipping_form_controller.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/outline_form_text_field.dart';
+import 'package:flutter_shop/widgets/components/simple_outline_button.dart';
 
-class ShippingForm extends StatefulWidget {
-  final GlobalKey<FormState> formKey;
-
-  ShippingForm({
-    Key key,
-    this.formKey,
-  }) : super(key: key);
+class ShippingTabForm extends StatefulWidget {
+  ShippingTabForm({Key key}) : super(key: key);
 
   @override
-  _ShippingFormState createState() => _ShippingFormState();
+  _ShippingTabFormState createState() => _ShippingTabFormState();
 }
 
-class _ShippingFormState extends State<ShippingForm> {
+class _ShippingTabFormState extends State<ShippingTabForm> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     final translator = AppLocalizations.of(context);
@@ -23,30 +21,17 @@ class _ShippingFormState extends State<ShippingForm> {
     final theme = Theme.of(context);
 
     return Form(
-      key: widget.formKey,
+      key: _formKey,
       child: Container(
         margin: EdgeInsets.only(
+          top: 16,
+          left: 8,
+          right: 8,
           bottom: 16,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-              margin: EdgeInsets.all(16),
-              child: Text(
-                translator.translate('shipping_title_text'),
-                style: theme.primaryTextTheme.title,
-              ),
-            ),
-            OutlineFormTextField(
-              labelText: translator.translate("full_name_label_text"),
-              keyboardType: TextInputType.text,
-              textInputAction: TextInputAction.next,
-              focusNode: controller.fullNameFocusNode,
-              validator: controller.fullNameValidator,
-              onFieldSubmitted: controller.fullNameSubmitted,
-              onFieldSaved: _fullNameSaved,
-            ),
             OutlineFormTextField(
               labelText: translator.translate("address_label_text"),
               keyboardType: TextInputType.text,
@@ -110,16 +95,28 @@ class _ShippingFormState extends State<ShippingForm> {
                 ),
               ],
             ),
+            SimpleOutlineButton(
+              margin: EdgeInsets.only(
+                left: 8,
+                right: 8,
+              ),
+              child: Text(translator.translate('save')),
+              onPressed: _submit,
+            )
           ],
         ),
       ),
     );
   }
 
-  void _fullNameSaved(String value) {}
   void _addressSaved(String value) {}
   void _countrySaved(String value) {}
   void _stateSaved(String value) {}
   void _citySaved(String value) {}
   void _zipSaved(String value) {}
+  void _submit() {
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save();
+    }
+  }
 }
