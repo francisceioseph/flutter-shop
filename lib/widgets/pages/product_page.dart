@@ -7,6 +7,7 @@ import 'package:flutter_shop/widgets/components/product_page/product_carousel.da
 import 'package:flutter_shop/widgets/components/product_page/product_description.dart';
 import 'package:flutter_shop/widgets/components/product_page/product_price.dart';
 import 'package:flutter_shop/widgets/components/product_page/product_title.dart';
+import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
 import 'package:provider/provider.dart';
 
 class ProductPage extends StatelessWidget {
@@ -64,7 +65,18 @@ class ProductPage extends StatelessWidget {
   }
 
   void _showSnackBar(BuildContext context, String message) {
-    final snackbar = SnackBar(content: Text(message));
+    final snackbar = SnackBar(
+      content: Text(message),
+      action: SnackBarAction(
+        label: 'Go Home',
+        onPressed: () {
+          Navigator.of(context).pushNamedAndRemoveUntil(
+            MainPage.routeName,
+            (_) => false,
+          );
+        },
+      ),
+    );
     Scaffold.of(context).showSnackBar(snackbar);
   }
 }

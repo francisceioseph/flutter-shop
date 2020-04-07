@@ -5,10 +5,13 @@ class StepButtons extends StatelessWidget {
   final void Function() onNextTap;
   final void Function() onBackTap;
 
+  final String nextButtonText;
+
   const StepButtons({
     Key key,
     this.onNextTap,
     this.onBackTap,
+    this.nextButtonText,
   }) : super(key: key);
 
   @override
@@ -34,7 +37,10 @@ class StepButtons extends StatelessWidget {
               margin: EdgeInsets.all(8),
               child: FloatingActionButton(
                 isExtended: true,
-                child: Text(translator.translate('next_button_text')),
+                child: Text(
+                  this.nextButtonText ??
+                      translator.translate('next_button_text'),
+                ),
                 onPressed: onNextTap,
               ),
             ),

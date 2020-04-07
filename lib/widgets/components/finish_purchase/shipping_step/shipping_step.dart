@@ -35,9 +35,9 @@ class ShippingStep extends StatelessWidget {
   }
 
   void _onNextTap() {
-    if (_formKey.currentState.validate()) {
-      _formKey.currentState.save();
-      this.onNextTap();
-    }
+    // if (_formKey.currentState.validate()) {
+    // _formKey.currentState.save();
+    this.onNextTap();
+    // }
   }
 }
