@@ -48,8 +48,8 @@ class _ProfilePageState extends State<ProfilePage>
                 controller: controller,
                 tabs: [
                   Tab(text: translator.translate('personal')),
-                  Tab(text: translator.translate('password')),
                   Tab(text: translator.translate('shipping')),
+                  Tab(text: translator.translate('password')),
                 ],
               ),
             ),
