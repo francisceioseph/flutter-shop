@@ -49,5 +49,13 @@
   "card_expire_date_label_text": "expire date",
   "card_cvc_label_text": "cvc",
   "email_error_text": "invalid email",
-  "empty_field_error_message": "can't be blank"
+  "empty_field_error_message": "can't be blank",
+  "confirm_step_title": "confirm your purchase",
+  "amount_to_pay_title": "amount to pay for this order",
+  "process_payment_button_text": "process payment",
+  "congratulations_text": "congratulations",
+  "about_order_text": "Your order has been processed. Estimated delivery time of 3-6 days.",
+  "thank_you_text": "Thank you for shopping at @FlutterStore",
+  "social_media_text": "Don't forget to follow our social account",
+  "continue_shopping_button_text": "close and continue shopping"
 }

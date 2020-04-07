@@ -29,7 +29,7 @@ class ConfirmOrderStep extends StatelessWidget {
               bottom: 24,
             ),
             child: Text(
-              'confirm your order',
+              translator.translate('confirm_step_title'),
               style: Theme.of(context).primaryTextTheme.title,
               textAlign: TextAlign.left,
             ),
@@ -45,7 +45,7 @@ class ConfirmOrderStep extends StatelessWidget {
                   left: 16,
                 ),
                 child: Text(
-                  'Amount to pay for this order',
+                  translator.translate('amount_to_pay_title'),
                   textAlign: TextAlign.center,
                   style: Theme.of(context).primaryTextTheme.title.copyWith(
                         color: Colors.grey[350],
@@ -80,7 +80,7 @@ class ConfirmOrderStep extends StatelessWidget {
         SliverFillRemaining(
           hasScrollBody: false,
           child: StepButtons(
-            nextButtonText: 'process payment',
+            nextButtonText: translator.translate('process_payment_button_text'),
             onNextTap: onNextTap,
             onBackTap: onBackTap,
           ),

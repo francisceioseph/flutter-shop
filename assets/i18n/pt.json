@@ -49,5 +49,13 @@
   "card_expire_date_label_text": "data de vencimento",
   "card_cvc_label_text": "ccv",
   "email_error_text": "e-mail inválido",
-  "empty_field_error_message": "campo obrigatório"
+  "empty_field_error_message": "campo obrigatório",
+  "confirm_step_title": "confirme o seu pedido",
+  "amount_to_pay_title": "O quanto você pagará por este pedido",
+  "process_payment_button_text": "pagar",
+  "congratulations_text": "parabéns",
+  "about_order_text": "Pagamento processado com sucesso! O tempo de entrega é de 3-6 dias.",
+  "thank_you_text": "Obrigado por comprar na @FlutterStore",
+  "social_media_text": "Siga-no nas nossas mídias sociais",
+  "continue_shopping_button_text": "continuar comprando"
 }
