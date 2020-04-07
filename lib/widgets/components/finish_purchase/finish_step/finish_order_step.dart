@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
-import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class FinishOrderStep extends StatelessWidget {

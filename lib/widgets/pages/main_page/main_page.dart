@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
+import 'package:flutter_shop/widgets/components/cart_with_number_of_items.dart';
 import 'package:flutter_shop/widgets/pages/main_page/cart_tab.dart';
 import 'package:flutter_shop/widgets/pages/main_page/categories_tab.dart';
 import 'package:flutter_shop/widgets/pages/main_page/search_tab.dart';
@@ -29,7 +30,7 @@ class MainPage extends StatelessWidget {
         text: translator.translate("search_tab_text"),
       ),
       Tab(
-        icon: Icon(Icons.shopping_cart),
+        icon: CartWithNumberOfItems(),
         text: translator.translate("cart_tab_text"),
       )
     ];

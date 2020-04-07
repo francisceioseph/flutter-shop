@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/models/state/app_state.dart';
+import 'package:flutter_shop/widgets/components/cart_with_number_of_items.dart';
 import 'package:flutter_shop/widgets/components/product_item/product_item.dart';
 import 'package:flutter_shop/widgets/components/staggered_grid.dart';
+import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
 import 'package:provider/provider.dart';
 
 class ProductsPage extends StatelessWidget {
@@ -19,6 +21,19 @@ class ProductsPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(appState.currentCategory?.name),
+          actions: <Widget>[
+            Builder(builder: (BuildContext context) {
+              return IconButton(
+                icon: CartWithNumberOfItems(),
+                onPressed: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                    MainPage.routeName,
+                    (_) => false,
+                  );
+                },
+              );
+            }),
+          ],
         ),
         body: Container(
           child: Consumer<AppState>(
