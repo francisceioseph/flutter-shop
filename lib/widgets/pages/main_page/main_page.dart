@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/cart_with_number_of_items.dart';
+import 'package:flutter_shop/widgets/pages/landing_page.dart';
 import 'package:flutter_shop/widgets/pages/main_page/cart_tab.dart';
 import 'package:flutter_shop/widgets/pages/main_page/categories_tab.dart';
 import 'package:flutter_shop/widgets/pages/main_page/search_tab.dart';
@@ -8,13 +9,13 @@ import 'package:flutter_shop/widgets/pages/main_page/search_tab.dart';
 class MainPage extends StatelessWidget {
   static const routeName = '/home';
 
-  final List<Widget> _tabViews = const [
+  final List<Widget> _tabViews = [
     ProductsTab(),
     SearchTab(),
     CartTab(),
   ];
 
-  const MainPage({Key key}) : super(key: key);
+  MainPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class MainPage extends StatelessWidget {
       Tab(
         icon: CartWithNumberOfItems(),
         text: translator.translate("cart_tab_text"),
-      )
+      ),
     ];
 
     return DefaultTabController(
@@ -44,6 +45,16 @@ class MainPage extends StatelessWidget {
             title: Text(
               translator.translate('app_title'),
             ),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.person_outline),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(Icons.exit_to_app),
+                onPressed: () => _logout(context),
+              ),
+            ],
           ),
           body: TabBarView(children: _tabViews),
           bottomNavigationBar: Container(
@@ -68,6 +79,13 @@ class MainPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  void _logout(BuildContext context) {
+    Navigator.of(context).pushNamedAndRemoveUntil(
+      LandingPage.routeName,
+      (_) => false,
     );
   }
 }
