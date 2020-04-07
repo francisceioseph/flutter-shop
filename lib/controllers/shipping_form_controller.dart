@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/helpers/validator_helpers.dart';
+import 'package:flutter_shop/services/validator.dart';
 
 class ShippingFormController {
   final BuildContext context;
+  final Validator _validator;
 
   final fullNameFocusNode = FocusNode();
   final addressFocusNode = FocusNode();
@@ -14,10 +15,11 @@ class ShippingFormController {
 
   ShippingFormController.of(BuildContext context)
       : assert(context != null),
-        context = context;
+        context = context,
+        _validator = Validator.of(context);
 
   String fullNameValidator(String value) {
-    return ValidatorHelper.validatePresence(value);
+    return _validator.validatePresence(value);
   }
 
   void fullNameSubmitted(String value) {
@@ -25,7 +27,7 @@ class ShippingFormController {
   }
 
   String addressValidator(String value) {
-    return ValidatorHelper.validatePresence(value);
+    return _validator.validatePresence(value);
   }
 
   void addressSubmitted(String value) {
@@ -33,7 +35,7 @@ class ShippingFormController {
   }
 
   String countryValidator(String value) {
-    return ValidatorHelper.validatePresence(value);
+    return _validator.validatePresence(value);
   }
 
   void countrySubmitted(String value) {
@@ -41,7 +43,7 @@ class ShippingFormController {
   }
 
   String stateValidator(String value) {
-    return ValidatorHelper.validatePresence(value);
+    return _validator.validatePresence(value);
   }
 
   void stateSubmitted(String value) {
@@ -49,7 +51,7 @@ class ShippingFormController {
   }
 
   String cityValidator(String value) {
-    return ValidatorHelper.validatePresence(value);
+    return _validator.validatePresence(value);
   }
 
   void citySubmitted(String value) {
@@ -57,7 +59,7 @@ class ShippingFormController {
   }
 
   String zipValidator(String value) {
-    return ValidatorHelper.validatePresence(value);
+    return _validator.validatePresence(value);
   }
 
   void zipSubmitted(String value) {}

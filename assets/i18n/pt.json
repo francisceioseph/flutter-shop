@@ -47,5 +47,7 @@
   "user_card_name_label_text": "nome no cartão",
   "card_number_label_text": "número do cartão",
   "card_expire_date_label_text": "data de vencimento",
-  "card_cvc_label_text": "ccv"
+  "card_cvc_label_text": "ccv",
+  "email_error_text": "e-mail inválido",
+  "empty_field_error_message": "campo obrigatório"
 }

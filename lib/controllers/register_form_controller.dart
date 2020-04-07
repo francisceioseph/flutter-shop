@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/helpers/validator_helpers.dart';
+import 'package:flutter_shop/services/validator.dart';
 
 class RegisterFormController {
   final BuildContext context;
+  final Validator _validator;
 
   final firstNameFocusNode = FocusNode();
   final lastNameFocusNode = FocusNode();
@@ -10,12 +11,12 @@ class RegisterFormController {
   final passwordFocusNode = FocusNode();
   final passwordConfirmationFocusNode = FocusNode();
 
-  RegisterFormController({
-    @required this.context,
-  });
+  RegisterFormController.of(BuildContext context)
+      : context = context,
+        _validator = Validator.of(context);
 
   String validateFirstName(String value) {
-    return ValidatorHelper.validatePresence(value);
+    return _validator.validatePresence(value);
   }
 
   void onFirstNameSubmitted(String value) {
@@ -23,7 +24,7 @@ class RegisterFormController {
   }
 
   String validateLastName(String value) {
-    return ValidatorHelper.validatePresence(value);
+    return _validator.validatePresence(value);
   }
 
   void onLastNameSubmitted(String value) {
@@ -31,13 +32,7 @@ class RegisterFormController {
   }
 
   String validateEmail(String value) {
-    if (value.isEmpty) {
-      return "This field can't be empty";
-    } else if (!ValidatorHelper.validateEmail(value)) {
-      return "invalid email";
-    }
-
-    return null;
+    return _validator.validateEmail(value);
   }
 
   void onEmailFieldSubmitted(String value) {

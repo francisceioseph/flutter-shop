@@ -14,7 +14,6 @@ class RegisterForm extends StatefulWidget {
 
 class _RegisterFormState extends State<RegisterForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  RegisterFormController _controller;
 
   String _firstName;
   String _lastName;
@@ -23,14 +22,9 @@ class _RegisterFormState extends State<RegisterForm> {
   String _passwordConfirmation;
 
   @override
-  void initState() {
-    _controller = RegisterFormController(context: context);
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final translator = AppLocalizations.of(context);
+    final controller = RegisterFormController.of(context);
 
     return Form(
       key: _formKey,
@@ -50,9 +44,9 @@ class _RegisterFormState extends State<RegisterForm> {
                 hintText: translator.translate('first_name_hint_text'),
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.next,
-                focusNode: _controller.firstNameFocusNode,
-                validator: _controller.validateFirstName,
-                onFieldSubmitted: _controller.onFirstNameSubmitted,
+                focusNode: controller.firstNameFocusNode,
+                validator: controller.validateFirstName,
+                onFieldSubmitted: controller.onFirstNameSubmitted,
                 onFieldSaved: _onFirstNameSaved,
               ),
               IconFormTextField(
@@ -60,9 +54,9 @@ class _RegisterFormState extends State<RegisterForm> {
                 hintText: translator.translate('last_name_hint_text'),
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.next,
-                focusNode: _controller.lastNameFocusNode,
-                validator: _controller.validateLastName,
-                onFieldSubmitted: _controller.onLastNameSubmitted,
+                focusNode: controller.lastNameFocusNode,
+                validator: controller.validateLastName,
+                onFieldSubmitted: controller.onLastNameSubmitted,
                 onFieldSaved: _onLastNameSaved,
               ),
               IconFormTextField(
@@ -70,9 +64,9 @@ class _RegisterFormState extends State<RegisterForm> {
                 hintText: translator.translate('email_hint_text'),
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
-                focusNode: _controller.emailFocusNode,
-                validator: _controller.validateEmail,
-                onFieldSubmitted: _controller.onEmailFieldSubmitted,
+                focusNode: controller.emailFocusNode,
+                validator: controller.validateEmail,
+                onFieldSubmitted: controller.onEmailFieldSubmitted,
                 onFieldSaved: _onEmailFieldSaved,
               ),
               IconFormTextField(
@@ -81,9 +75,9 @@ class _RegisterFormState extends State<RegisterForm> {
                 obscureText: true,
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.next,
-                focusNode: _controller.passwordFocusNode,
-                validator: _controller.validadePassword,
-                onFieldSubmitted: _controller.onPasswordSubmitted,
+                focusNode: controller.passwordFocusNode,
+                validator: controller.validadePassword,
+                onFieldSubmitted: controller.onPasswordSubmitted,
                 onFieldSaved: _onPasswordFieldSaved,
               ),
               IconFormTextField(
@@ -92,8 +86,8 @@ class _RegisterFormState extends State<RegisterForm> {
                 hintText: 'Your password confirmation address',
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.done,
-                focusNode: _controller.passwordConfirmationFocusNode,
-                validator: _controller.validadePasswordConfirmation,
+                focusNode: controller.passwordConfirmationFocusNode,
+                validator: controller.validadePasswordConfirmation,
                 onFieldSaved: _onPasswordConfirmationFieldSaved,
               ),
               OutlineFormButton(

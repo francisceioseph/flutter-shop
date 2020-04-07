@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/helpers/validator_helpers.dart';
+import 'package:flutter_shop/services/validator.dart';
 
 class PaymentFormController {
   final userCardNameFocusNode = FocusNode();
@@ -8,10 +8,14 @@ class PaymentFormController {
   final cvcFocusNode = FocusNode();
 
   final BuildContext context;
-  PaymentFormController.of(BuildContext context) : context = context;
+  final Validator _validator;
+
+  PaymentFormController.of(BuildContext context)
+      : context = context,
+        _validator = Validator.of(context);
 
   String userCardNameValidator(String value) {
-    return ValidatorHelper.validatePresence(value);
+    return _validator.validatePresence(value);
   }
 
   void userCardNameSubmitted(String value) {
@@ -19,7 +23,7 @@ class PaymentFormController {
   }
 
   String cardNumberValidator(String value) {
-    return ValidatorHelper.validatePresence(value);
+    return _validator.validatePresence(value);
   }
 
   void cardNumberSubmitted(String value) {
@@ -27,7 +31,7 @@ class PaymentFormController {
   }
 
   String expireDateValidator(String value) {
-    return ValidatorHelper.validatePresence(value);
+    return _validator.validatePresence(value);
   }
 
   void expireDateSubmitted(String value) {
@@ -35,7 +39,7 @@ class PaymentFormController {
   }
 
   String cvcValidator(String value) {
-    return ValidatorHelper.validatePresence(value);
+    return _validator.validatePresence(value);
   }
 
   void _changeFocus(FocusNode focusNode) {

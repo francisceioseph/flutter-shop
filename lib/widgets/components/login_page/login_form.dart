@@ -15,21 +15,13 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
 
-  LoginFormController _controller;
-
   String _email;
   String _password;
 
   @override
-  void initState() {
-    super.initState();
-
-    _controller = LoginFormController(context: context);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final _translator = AppLocalizations.of(context);
+    final translator = AppLocalizations.of(context);
+    final controller = LoginFormController.of(context);
 
     return Form(
       key: _formKey,
@@ -45,28 +37,28 @@ class _LoginFormState extends State<LoginForm> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               IconFormTextField(
-                labelText: _translator.translate("email_label_text"),
-                hintText: _translator.translate('email_hint_text'),
+                labelText: translator.translate("email_label_text"),
+                hintText: translator.translate('email_hint_text'),
                 leadingIcon: Icons.email,
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
-                validator: _controller.validateEmail,
-                onFieldSubmitted: _controller.onEmailFieldSubmitted,
+                validator: controller.validateEmail,
+                onFieldSubmitted: controller.onEmailFieldSubmitted,
                 onFieldSaved: _onEmailFieldSaved,
               ),
               IconFormTextField(
                 obscureText: true,
-                labelText: _translator.translate('password_label_text'),
-                hintText: _translator.translate('password_hint_text'),
+                labelText: translator.translate('password_label_text'),
+                hintText: translator.translate('password_hint_text'),
                 leadingIcon: Icons.lock,
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.done,
-                focusNode: _controller.passwordFocusNode,
-                validator: _controller.validadePassword,
+                focusNode: controller.passwordFocusNode,
+                validator: controller.validadePassword,
                 onFieldSaved: _onPasswordFieldSaved,
               ),
               OutlineFormButton(
-                text: _translator.translate('login_button_text'),
+                text: translator.translate('login_button_text'),
                 onPressed: _onSubmit,
               )
             ],

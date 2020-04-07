@@ -47,5 +47,7 @@
   "user_card_name_label_text": "name on card",
   "card_number_label_text": "card number",
   "card_expire_date_label_text": "expire date",
-  "card_cvc_label_text": "cvc"
+  "card_cvc_label_text": "cvc",
+  "email_error_text": "invalid email",
+  "empty_field_error_message": "can't be blank"
 }
