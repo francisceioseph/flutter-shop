@@ -57,5 +57,11 @@
   "about_order_text": "Pagamento processado com sucesso! O tempo de entrega é de 3-6 dias.",
   "thank_you_text": "Obrigado por comprar na @FlutterStore",
   "social_media_text": "Siga-no nas nossas mídias sociais",
-  "continue_shopping_button_text": "continuar comprando"
+  "continue_shopping_button_text": "continuar comprando",
+  "profile_app_bar_text": "Perfil",
+  "birth_date_label_text": "data de nascimento",
+  "phone_label_text": "telefone",
+  "personal": "pessoal",
+  "password": "senha",
+  "shipping": "endereço"
 }

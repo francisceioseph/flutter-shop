@@ -5,6 +5,7 @@ import 'package:flutter_shop/widgets/pages/landing_page.dart';
 import 'package:flutter_shop/widgets/pages/main_page/cart_tab.dart';
 import 'package:flutter_shop/widgets/pages/main_page/categories_tab.dart';
 import 'package:flutter_shop/widgets/pages/main_page/search_tab.dart';
+import 'package:flutter_shop/widgets/pages/profile_page.dart';
 
 class MainPage extends StatelessWidget {
   static const routeName = '/home';
@@ -48,7 +49,7 @@ class MainPage extends StatelessWidget {
             actions: <Widget>[
               IconButton(
                 icon: Icon(Icons.person_outline),
-                onPressed: () {},
+                onPressed: () => _goToProfile(context),
               ),
               IconButton(
                 icon: Icon(Icons.exit_to_app),
@@ -87,5 +88,9 @@ class MainPage extends StatelessWidget {
       LandingPage.routeName,
       (_) => false,
     );
+  }
+
+  void _goToProfile(BuildContext context) {
+    Navigator.of(context).pushNamed(ProfilePage.routeName);
   }
 }

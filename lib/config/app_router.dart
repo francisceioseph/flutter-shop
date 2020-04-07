@@ -5,6 +5,7 @@ import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
 import 'package:flutter_shop/widgets/pages/product_page.dart';
 import 'package:flutter_shop/widgets/pages/products_page.dart';
 import 'package:flutter_shop/widgets/pages/place_order_page.dart';
+import 'package:flutter_shop/widgets/pages/profile_page.dart';
 import 'package:flutter_shop/widgets/pages/register_page.dart';
 
 class AppRouter {
@@ -29,6 +30,9 @@ class AppRouter {
 
           case RegisterPage.routeName:
             return RegisterPage();
+
+          case ProfilePage.routeName:
+            return ProfilePage();
 
           default:
             return LandingPage();

@@ -57,5 +57,11 @@
   "about_order_text": "Your order has been processed. Estimated delivery time of 3-6 days.",
   "thank_you_text": "Thank you for shopping at @FlutterStore",
   "social_media_text": "Don't forget to follow our social account",
-  "continue_shopping_button_text": "close and continue shopping"
+  "continue_shopping_button_text": "close and continue shopping",
+  "profile_app_bar_text": "Profile",
+  "birth_date_label_text": "birth date",
+  "phone_label_text": "phone",
+  "personal": "personal",
+  "password": "password",
+  "shipping": "shipping"
 }

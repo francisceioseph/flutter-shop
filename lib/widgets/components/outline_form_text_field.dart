@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class OutlineFormTextField extends StatelessWidget {
   final FocusNode focusNode;
 
+  final String initialValue;
   final String hintText;
   final String labelText;
   final String Function(String) validator;
@@ -26,6 +27,7 @@ class OutlineFormTextField extends StatelessWidget {
     this.onFieldSubmitted,
     this.onFieldSaved,
     this.onChanged,
+    this.initialValue,
     this.maxLines = 1,
   }) : super(key: key);
 
@@ -34,6 +36,7 @@ class OutlineFormTextField extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(8),
       child: TextFormField(
+        initialValue: initialValue,
         maxLines: this.maxLines,
         validator: this.validator,
         obscureText: this.obscureText,
