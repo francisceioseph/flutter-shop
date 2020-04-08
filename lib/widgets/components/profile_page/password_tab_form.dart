@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop/controllers/password_tab_form_controller.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/outline_form_text_field.dart';
+import 'package:flutter_shop/widgets/components/simple_outline_button.dart';
 
 class PasswordTabForm extends StatefulWidget {
   const PasswordTabForm({Key key}) : super(key: key);
@@ -56,6 +57,14 @@ class _PasswordTabFormState extends State<PasswordTabForm> {
                 validator: controller.newPasswordConfirmationValidator,
                 onFieldSaved: _newPasswordConfirmationSaved,
               ),
+              SimpleOutlineButton(
+                margin: EdgeInsets.only(
+                  left: 8,
+                  right: 8,
+                ),
+                child: Text(translator.translate('save')),
+                onPressed: _submit,
+              )
             ],
           ),
         ),
@@ -66,4 +75,9 @@ class _PasswordTabFormState extends State<PasswordTabForm> {
   void _oldPasswordSaved(String value) {}
   void _newPasswordSaved(String value) {}
   void _newPasswordConfirmationSaved(String value) {}
+  void _submit() {
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save();
+    }
+  }
 }

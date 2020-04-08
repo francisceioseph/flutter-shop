@@ -28,81 +28,83 @@ class _ShippingTabFormState extends State<ShippingTabForm> {
           right: 8,
           bottom: 16,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            OutlineFormTextField(
-              labelText: translator.translate("address_label_text"),
-              keyboardType: TextInputType.text,
-              textInputAction: TextInputAction.next,
-              focusNode: controller.addressFocusNode,
-              validator: controller.addressValidator,
-              onFieldSubmitted: controller.addressSubmitted,
-              onFieldSaved: _addressSaved,
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Expanded(
-                  child: OutlineFormTextField(
-                    labelText: translator.translate("country_label_text"),
-                    keyboardType: TextInputType.text,
-                    textInputAction: TextInputAction.next,
-                    focusNode: controller.countryFocusNode,
-                    validator: controller.countryValidator,
-                    onFieldSubmitted: controller.countrySubmitted,
-                    onFieldSaved: _countrySaved,
-                  ),
-                ),
-                Expanded(
-                  child: OutlineFormTextField(
-                    labelText: translator.translate("state_label_text"),
-                    keyboardType: TextInputType.text,
-                    textInputAction: TextInputAction.next,
-                    focusNode: controller.stateFocusNode,
-                    validator: controller.stateValidator,
-                    onFieldSubmitted: controller.stateSubmitted,
-                    onFieldSaved: _stateSaved,
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Expanded(
-                  child: OutlineFormTextField(
-                    labelText: translator.translate("city_label_text"),
-                    keyboardType: TextInputType.text,
-                    textInputAction: TextInputAction.next,
-                    focusNode: controller.cityFocusNode,
-                    validator: controller.cityValidator,
-                    onFieldSubmitted: controller.citySubmitted,
-                    onFieldSaved: _citySaved,
-                  ),
-                ),
-                Expanded(
-                  child: OutlineFormTextField(
-                    labelText: translator.translate("zip_label_text"),
-                    keyboardType: TextInputType.text,
-                    textInputAction: TextInputAction.next,
-                    focusNode: controller.zipFocusNode,
-                    validator: controller.zipValidator,
-                    onFieldSubmitted: controller.zipSubmitted,
-                    onFieldSaved: _zipSaved,
-                  ),
-                ),
-              ],
-            ),
-            SimpleOutlineButton(
-              margin: EdgeInsets.only(
-                left: 8,
-                right: 8,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              OutlineFormTextField(
+                labelText: translator.translate("address_label_text"),
+                keyboardType: TextInputType.text,
+                textInputAction: TextInputAction.next,
+                focusNode: controller.addressFocusNode,
+                validator: controller.addressValidator,
+                onFieldSubmitted: controller.addressSubmitted,
+                onFieldSaved: _addressSaved,
               ),
-              child: Text(translator.translate('save')),
-              onPressed: _submit,
-            )
-          ],
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Expanded(
+                    child: OutlineFormTextField(
+                      labelText: translator.translate("country_label_text"),
+                      keyboardType: TextInputType.text,
+                      textInputAction: TextInputAction.next,
+                      focusNode: controller.countryFocusNode,
+                      validator: controller.countryValidator,
+                      onFieldSubmitted: controller.countrySubmitted,
+                      onFieldSaved: _countrySaved,
+                    ),
+                  ),
+                  Expanded(
+                    child: OutlineFormTextField(
+                      labelText: translator.translate("state_label_text"),
+                      keyboardType: TextInputType.text,
+                      textInputAction: TextInputAction.next,
+                      focusNode: controller.stateFocusNode,
+                      validator: controller.stateValidator,
+                      onFieldSubmitted: controller.stateSubmitted,
+                      onFieldSaved: _stateSaved,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Expanded(
+                    child: OutlineFormTextField(
+                      labelText: translator.translate("city_label_text"),
+                      keyboardType: TextInputType.text,
+                      textInputAction: TextInputAction.next,
+                      focusNode: controller.cityFocusNode,
+                      validator: controller.cityValidator,
+                      onFieldSubmitted: controller.citySubmitted,
+                      onFieldSaved: _citySaved,
+                    ),
+                  ),
+                  Expanded(
+                    child: OutlineFormTextField(
+                      labelText: translator.translate("zip_label_text"),
+                      keyboardType: TextInputType.text,
+                      textInputAction: TextInputAction.next,
+                      focusNode: controller.zipFocusNode,
+                      validator: controller.zipValidator,
+                      onFieldSubmitted: controller.zipSubmitted,
+                      onFieldSaved: _zipSaved,
+                    ),
+                  ),
+                ],
+              ),
+              SimpleOutlineButton(
+                margin: EdgeInsets.only(
+                  left: 8,
+                  right: 8,
+                ),
+                child: Text(translator.translate('save')),
+                onPressed: _submit,
+              )
+            ],
+          ),
         ),
       ),
     );
