@@ -60,7 +60,7 @@ class _ProfilePageState extends State<ProfilePage>
                 children: <Widget>[
                   PersonalTab(),
                   ShippingTab(),
-                  Container(),
+                  ProfilePage(),
                 ],
               ),
             ),
