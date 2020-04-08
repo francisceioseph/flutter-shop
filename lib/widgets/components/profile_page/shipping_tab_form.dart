@@ -18,7 +18,6 @@ class _ShippingTabFormState extends State<ShippingTabForm> {
   Widget build(BuildContext context) {
     final translator = AppLocalizations.of(context);
     final controller = ShippingFormController.of(context);
-    final theme = Theme.of(context);
 
     return Form(
       key: _formKey,
