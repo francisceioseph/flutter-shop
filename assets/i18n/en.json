@@ -64,5 +64,8 @@
   "personal": "personal",
   "password": "password",
   "shipping": "shipping",
-  "save": "save"
+  "save": "save",
+  "current_password_label": "current password",
+  "new_password_label": "new password",
+  "new_password_confirmation_label": "new password confirmation"
 }

@@ -53,6 +53,10 @@ class _ProfilePageState extends State<ProfilePage>
                   Tab(text: translator.translate('shipping')),
                   Tab(text: translator.translate('password')),
                 ],
+                indicatorSize: TabBarIndicatorSize.label,
+                indicatorPadding: EdgeInsets.all(5.0),
+                indicatorColor: Theme.of(context).accentColor,
+                labelColor: Theme.of(context).accentColor,
               ),
             ),
             Expanded(

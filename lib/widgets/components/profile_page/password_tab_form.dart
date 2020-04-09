@@ -32,7 +32,7 @@ class _PasswordTabFormState extends State<PasswordTabForm> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               OutlineFormTextField(
-                labelText: translator.translate("full_name_label_text"),
+                labelText: translator.translate("current_password_label"),
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.next,
                 focusNode: controller.oldPasswordFocusNode,
@@ -41,7 +41,7 @@ class _PasswordTabFormState extends State<PasswordTabForm> {
                 onFieldSaved: _oldPasswordSaved,
               ),
               OutlineFormTextField(
-                labelText: translator.translate("birth_date_label_text"),
+                labelText: translator.translate("new_password_label"),
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.next,
                 focusNode: controller.newPasswordFocusNode,
@@ -50,7 +50,9 @@ class _PasswordTabFormState extends State<PasswordTabForm> {
                 onFieldSaved: _newPasswordSaved,
               ),
               OutlineFormTextField(
-                labelText: translator.translate("email_label_text"),
+                labelText: translator.translate(
+                  "new_password_confirmation_label",
+                ),
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.done,
                 focusNode: controller.newPasswordConfirmationFocusNode,

@@ -77,6 +77,7 @@ final kAppLightTheme = ThemeData(
   tabBarTheme: TabBarTheme(
     labelStyle: TextStyle(
       fontFamily: 'BellotaText',
+      color: Colors.blue,
     ),
     unselectedLabelStyle: TextStyle(
       fontFamily: 'BellotaText',

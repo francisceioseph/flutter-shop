@@ -82,8 +82,8 @@ class _RegisterFormState extends State<RegisterForm> {
               ),
               IconFormTextField(
                 obscureText: true,
-                labelText: 'Password Confirmation',
-                hintText: 'Your password confirmation address',
+                labelText: translator.translate('password_confirmation_label'),
+                hintText: translator.translate('password_confirmation_hint'),
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.done,
                 focusNode: controller.passwordConfirmationFocusNode,
