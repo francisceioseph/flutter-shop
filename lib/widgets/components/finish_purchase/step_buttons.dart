@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
+import 'package:line_icons/line_icons.dart';
 
 class StepButtons extends StatelessWidget {
   final void Function() onNextTap;
@@ -28,7 +29,7 @@ class StepButtons extends StatelessWidget {
           Container(
             margin: EdgeInsets.all(8),
             child: FloatingActionButton(
-              child: Icon(Icons.arrow_back),
+              child: Icon(LineIcons.arrow_left),
               onPressed: onBackTap,
             ),
           ),

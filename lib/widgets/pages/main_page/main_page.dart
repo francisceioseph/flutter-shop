@@ -6,6 +6,7 @@ import 'package:flutter_shop/widgets/pages/main_page/cart_tab.dart';
 import 'package:flutter_shop/widgets/pages/main_page/categories_tab.dart';
 import 'package:flutter_shop/widgets/pages/main_page/search_tab.dart';
 import 'package:flutter_shop/widgets/pages/profile_page.dart';
+import 'package:line_icons/line_icons.dart';
 
 class MainPage extends StatelessWidget {
   static const routeName = '/home';
@@ -24,11 +25,11 @@ class MainPage extends StatelessWidget {
 
     final List<Widget> tabs = [
       Tab(
-        icon: Icon(Icons.home),
+        icon: Icon(LineIcons.home),
         text: translator.translate("categories_tab_text"),
       ),
       Tab(
-        icon: Icon(Icons.search),
+        icon: Icon(LineIcons.search),
         text: translator.translate("search_tab_text"),
       ),
       Tab(
@@ -48,11 +49,11 @@ class MainPage extends StatelessWidget {
             ),
             actions: <Widget>[
               IconButton(
-                icon: Icon(Icons.person_outline),
+                icon: Icon(LineIcons.user),
                 onPressed: () => _goToProfile(context),
               ),
               IconButton(
-                icon: Icon(Icons.exit_to_app),
+                icon: Icon(LineIcons.sign_out),
                 onPressed: () => _logout(context),
               ),
             ],

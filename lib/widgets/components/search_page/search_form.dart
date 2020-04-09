@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
+import 'package:line_icons/line_icons.dart';
 
 class SearchForm extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -39,7 +40,7 @@ class SearchForm extends StatelessWidget {
               ),
             ),
             IconButton(
-              icon: Icon(Icons.search),
+              icon: Icon(LineIcons.search),
               onPressed: onSubmitForm,
             ),
           ],

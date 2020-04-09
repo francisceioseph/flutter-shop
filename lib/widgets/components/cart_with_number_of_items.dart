@@ -1,6 +1,7 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/models/state/cart_state.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
 
 class CartWithNumberOfItems extends StatelessWidget {
@@ -22,7 +23,7 @@ class CartWithNumberOfItems extends StatelessWidget {
 
         return child;
       },
-      child: Icon(Icons.shopping_cart),
+      child: Icon(LineIcons.shopping_cart),
     );
   }
 }

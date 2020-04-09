@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:line_icons/line_icons.dart';
 
 class LandingButtons extends StatelessWidget {
   final void Function() onRegisterTap;
@@ -25,7 +25,7 @@ class LandingButtons extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             FlatButton.icon(
-              icon: Icon(FontAwesomeIcons.pencilAlt),
+              icon: Icon(LineIcons.pencil_square),
               label: Text(
                 translator.translate('landing_register_now'),
               ),
@@ -35,7 +35,7 @@ class LandingButtons extends StatelessWidget {
               color: Colors.red,
             ),
             FlatButton.icon(
-              icon: Icon(FontAwesomeIcons.signInAlt),
+              icon: Icon(LineIcons.sign_in),
               label: Text(
                 translator.translate('landing_sign_in'),
               ),

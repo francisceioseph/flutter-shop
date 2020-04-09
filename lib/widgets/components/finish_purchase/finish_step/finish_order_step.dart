@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:line_icons/line_icons.dart';
 
 class FinishOrderStep extends StatelessWidget {
   final void Function() onNextTap;
@@ -67,15 +67,15 @@ class FinishOrderStep extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 FloatingActionButton(
-                  child: Icon(FontAwesomeIcons.facebook),
+                  child: Icon(LineIcons.facebook),
                   onPressed: () {},
                 ),
                 FloatingActionButton(
-                  child: Icon(FontAwesomeIcons.instagram),
+                  child: Icon(LineIcons.instagram),
                   onPressed: () {},
                 ),
                 FloatingActionButton(
-                  child: Icon(FontAwesomeIcons.twitter),
+                  child: Icon(LineIcons.twitter),
                   onPressed: () {},
                 ),
               ],

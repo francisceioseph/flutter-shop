@@ -4,6 +4,7 @@ import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/icon_form_text_field.dart';
 import 'package:flutter_shop/widgets/components/outline_form_button.dart';
 import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
+import 'package:line_icons/line_icons.dart';
 
 class LoginForm extends StatefulWidget {
   LoginForm({Key key}) : super(key: key);
@@ -39,7 +40,7 @@ class _LoginFormState extends State<LoginForm> {
               IconFormTextField(
                 labelText: translator.translate("email_label_text"),
                 hintText: translator.translate('email_hint_text'),
-                leadingIcon: Icons.email,
+                leadingIcon: LineIcons.envelope,
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
                 validator: controller.validateEmail,
@@ -50,7 +51,7 @@ class _LoginFormState extends State<LoginForm> {
                 obscureText: true,
                 labelText: translator.translate('password_label_text'),
                 hintText: translator.translate('password_hint_text'),
-                leadingIcon: Icons.lock,
+                leadingIcon: LineIcons.lock,
                 keyboardType: TextInputType.text,
                 textInputAction: TextInputAction.done,
                 focusNode: controller.passwordFocusNode,
