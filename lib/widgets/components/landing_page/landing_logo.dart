@@ -16,37 +16,36 @@ class LandingLogo extends StatelessWidget {
       ),
       child: AspectRatio(
         aspectRatio: 1,
-        child: Card(
-          elevation: 2,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(
-                  top: 16,
-                  bottom: 8,
-                  right: 16,
-                  left: 16,
-                ),
-                child: Text(
-                  _translator.translate('app_title'),
-                  style: textTheme.title,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(
+                top: 16,
+                bottom: 8,
+                right: 16,
+                left: 16,
+              ),
+              child: Text(
+                _translator.translate('app_title'),
+                style: textTheme.title.copyWith(
+                  fontSize: 32,
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(
-                  top: 8,
-                  bottom: 16,
-                  right: 16,
-                  left: 16,
-                ),
-                child: Text(
-                  _translator.translate('landing_logo_text'),
-                  style: textTheme.subhead,
-                ),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                top: 8,
+                bottom: 16,
+                right: 16,
+                left: 16,
               ),
-            ],
-          ),
+              child: Text(
+                _translator.translate('landing_logo_text'),
+                style: textTheme.subhead,
+              ),
+            ),
+          ],
         ),
       ),
     );
