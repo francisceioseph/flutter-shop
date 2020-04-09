@@ -33,6 +33,9 @@ class IconFormTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = Theme.of(context).primaryTextTheme.body1.copyWith(
+          fontFamily: 'BellotaText',
+        );
     return Container(
       child: ListTile(
         leading: this.leadingIcon != null ? Icon(this.leadingIcon) : null,
@@ -49,7 +52,11 @@ class IconFormTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: this.hintText,
             labelText: this.labelText,
+            errorStyle: textStyle.copyWith(
+              color: Colors.red,
+            ),
           ),
+          style: textStyle,
         ),
       ),
     );

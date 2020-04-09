@@ -28,6 +28,10 @@ class LandingButtons extends StatelessWidget {
               icon: Icon(LineIcons.pencil_square),
               label: Text(
                 translator.translate('landing_register_now'),
+                style: Theme.of(context).primaryTextTheme.button.copyWith(
+                      fontFamily: 'BellotaText',
+                      fontWeight: FontWeight.w700,
+                    ),
               ),
               onPressed: onRegisterTap,
             ),
@@ -38,6 +42,10 @@ class LandingButtons extends StatelessWidget {
               icon: Icon(LineIcons.sign_in),
               label: Text(
                 translator.translate('landing_sign_in'),
+                style: Theme.of(context).primaryTextTheme.button.copyWith(
+                      fontFamily: 'BellotaText',
+                      fontWeight: FontWeight.w700,
+                    ),
               ),
               onPressed: onLoginTap,
             ),

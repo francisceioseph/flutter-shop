@@ -29,7 +29,10 @@ class DividerText extends StatelessWidget {
             child: Divider(),
           ),
         ),
-        Text(text),
+        Text(
+          text,
+          style: Theme.of(context).primaryTextTheme.subtitle,
+        ),
         Expanded(
           child: Container(
             margin: EdgeInsets.only(left: 8),

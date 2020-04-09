@@ -1,32 +1,91 @@
 import 'package:flutter/material.dart';
 
-final _lightTheme = ThemeData.light();
-
-final kAppLightTheme = _lightTheme.copyWith(
+final kAppLightTheme = ThemeData(
+  brightness: Brightness.light,
   appBarTheme: AppBarTheme(
     textTheme: TextTheme(
-      title: _lightTheme.primaryTextTheme.title.copyWith(
+      title: TextStyle(
+        fontFamily: 'BellotaText',
+        fontWeight: FontWeight.w700,
+        fontSize: 24,
         color: Colors.white,
-        fontWeight: FontWeight.bold,
-        fontSize: 22,
       ),
     ),
   ),
-  primaryTextTheme: _lightTheme.primaryTextTheme.copyWith(
-    title: _lightTheme.primaryTextTheme.title.copyWith(
-      color: Colors.black,
+  primaryTextTheme: TextTheme(
+    title: TextStyle(
+      fontFamily: 'BellotaText',
+      fontWeight: FontWeight.w700,
+      color: Colors.black87,
     ),
-    subhead: _lightTheme.primaryTextTheme.subhead.copyWith(
-      color: Colors.black,
+    subtitle: TextStyle(
+      fontFamily: 'BellotaText',
+      fontWeight: FontWeight.w700,
+      color: Colors.black87,
     ),
-    subtitle: _lightTheme.primaryTextTheme.subtitle.copyWith(
-      color: Colors.black,
+    subhead: TextStyle(
+      fontFamily: 'BellotaText',
+      fontWeight: FontWeight.w700,
+      color: Colors.black87,
     ),
-    body1: _lightTheme.primaryTextTheme.subtitle.copyWith(
-      color: Colors.black,
+    headline: TextStyle(
+      fontFamily: 'BellotaText',
+      fontWeight: FontWeight.w700,
+      color: Colors.black87,
     ),
-    body2: _lightTheme.primaryTextTheme.subtitle.copyWith(
-      color: Colors.black,
+    body1: TextStyle(
+      fontFamily: 'BellotaText',
+      fontWeight: FontWeight.normal,
+      color: Colors.black87,
+    ),
+    button: TextStyle(
+      fontFamily: 'BellotaText',
+      fontWeight: FontWeight.w700,
+      color: Colors.blue,
+    ),
+  ),
+  accentTextTheme: TextTheme(
+    title: TextStyle(
+      fontFamily: 'BellotaText',
+      fontWeight: FontWeight.w700,
+      color: Colors.blue,
+    ),
+    subtitle: TextStyle(
+      fontFamily: 'BellotaText',
+      fontWeight: FontWeight.w700,
+      color: Colors.blue,
+    ),
+    headline: TextStyle(
+      fontFamily: 'BellotaText',
+      fontWeight: FontWeight.w700,
+      color: Colors.blue,
+    ),
+    body1: TextStyle(
+      fontFamily: 'BellotaText',
+      fontWeight: FontWeight.normal,
+      color: Colors.blue,
+    ),
+    button: TextStyle(
+      fontFamily: 'BellotaText',
+      fontWeight: FontWeight.w700,
+      color: Colors.white,
+    ),
+  ),
+  buttonTheme: ButtonThemeData(
+    textTheme: ButtonTextTheme.primary,
+  ),
+  tabBarTheme: TabBarTheme(
+    labelStyle: TextStyle(
+      fontFamily: 'BellotaText',
+    ),
+    unselectedLabelStyle: TextStyle(
+      fontFamily: 'BellotaText',
+    ),
+  ),
+  snackBarTheme: SnackBarThemeData(
+    contentTextStyle: TextStyle(
+      fontFamily: 'BellotaText',
+      color: Colors.white,
     ),
   ),
 );

@@ -33,6 +33,7 @@ class CartReviewStep extends StatelessWidget {
                   isExtended: true,
                   child: Text(
                     AppLocalizations.of(context).translate('next_button_text'),
+                    style: Theme.of(context).accentTextTheme.button,
                   ),
                   onPressed: onNextTap,
                 ),

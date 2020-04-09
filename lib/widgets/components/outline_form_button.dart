@@ -23,6 +23,7 @@ class OutlineFormButton extends StatelessWidget {
         title: OutlineButton(
           child: Text(
             this.text,
+            style: theme.primaryTextTheme.button,
           ),
           color: theme.accentColor,
           textColor: theme.accentColor,

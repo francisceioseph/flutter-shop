@@ -33,6 +33,10 @@ class OutlineFormTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = Theme.of(context).primaryTextTheme.body1.copyWith(
+          fontFamily: 'BellotaText',
+        );
+
     return Container(
       margin: EdgeInsets.all(8),
       child: TextFormField(
@@ -57,7 +61,11 @@ class OutlineFormTextField extends StatelessWidget {
           enabledBorder: _borderDecoration(Colors.grey),
           errorBorder: _borderDecoration(Colors.red),
           focusedErrorBorder: _borderDecoration(Colors.red),
+          errorStyle: textStyle.copyWith(
+            color: Colors.red,
+          ),
         ),
+        style: textStyle,
       ),
     );
   }

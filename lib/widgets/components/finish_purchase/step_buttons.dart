@@ -41,6 +41,7 @@ class StepButtons extends StatelessWidget {
                 child: Text(
                   this.nextButtonText ??
                       translator.translate('next_button_text'),
+                  style: Theme.of(context).accentTextTheme.button,
                 ),
                 onPressed: onNextTap,
               ),

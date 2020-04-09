@@ -17,7 +17,12 @@ class CartWithNumberOfItems extends StatelessWidget {
           return Badge(
             elevation: 2,
             child: child,
-            badgeContent: Text('$itemsLength'),
+            badgeContent: Text(
+              '$itemsLength',
+              style: Theme.of(context).primaryTextTheme.body1.copyWith(
+                    color: Colors.white,
+                  ),
+            ),
           );
         }
 

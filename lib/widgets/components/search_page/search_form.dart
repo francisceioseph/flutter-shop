@@ -19,7 +19,9 @@ class SearchForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final translator = AppLocalizations.of(context);
-
+    final textStyle = Theme.of(context).primaryTextTheme.body1.copyWith(
+          fontFamily: 'BellotaText',
+        );
     return Container(
       child: Form(
         key: formKey,
@@ -36,7 +38,11 @@ class SearchForm extends StatelessWidget {
                 onChanged: onValueChange,
                 decoration: InputDecoration(
                   hintText: translator.translate('search_label_text'),
+                  errorStyle: textStyle.copyWith(
+                    color: Colors.red,
+                  ),
                 ),
+                style: textStyle,
               ),
             ),
             IconButton(

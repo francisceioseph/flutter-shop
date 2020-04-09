@@ -29,6 +29,7 @@ class LandingLogo extends StatelessWidget {
               child: Text(
                 _translator.translate('app_title'),
                 style: textTheme.title.copyWith(
+                  fontFamily: 'BellotaText',
                   fontSize: 32,
                 ),
               ),
@@ -42,7 +43,10 @@ class LandingLogo extends StatelessWidget {
               ),
               child: Text(
                 _translator.translate('landing_logo_text'),
-                style: textTheme.subhead,
+                style: textTheme.subhead.copyWith(
+                  fontFamily: 'BellotaText',
+                  fontSize: 20,
+                ),
               ),
             ),
           ],

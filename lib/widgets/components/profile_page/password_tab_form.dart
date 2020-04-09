@@ -62,7 +62,10 @@ class _PasswordTabFormState extends State<PasswordTabForm> {
                   left: 8,
                   right: 8,
                 ),
-                child: Text(translator.translate('save')),
+                child: Text(
+                  translator.translate('save'),
+                  style: Theme.of(context).primaryTextTheme.button,
+                ),
                 onPressed: _submit,
               )
             ],

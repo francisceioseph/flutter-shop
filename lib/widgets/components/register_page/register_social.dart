@@ -23,12 +23,18 @@ class RegisterSocial extends StatelessWidget {
           children: <Widget>[
             FlatButton.icon(
               icon: Icon(FontAwesomeIcons.facebook),
-              label: Text('Facebook'),
+              label: Text(
+                'Facebook',
+                style: Theme.of(context).primaryTextTheme.button,
+              ),
               onPressed: onFacebookTap,
             ),
             FlatButton.icon(
               icon: Icon(FontAwesomeIcons.google),
-              label: Text('Google'),
+              label: Text(
+                'Google',
+                style: Theme.of(context).primaryTextTheme.button,
+              ),
               onPressed: onGoogleTap,
             ),
           ],

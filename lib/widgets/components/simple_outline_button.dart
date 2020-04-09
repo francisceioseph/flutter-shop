@@ -18,7 +18,7 @@ class SimpleOutlineButton extends StatelessWidget {
       margin: this.margin,
       child: OutlineButton(
         color: Theme.of(context).accentColor,
-        textColor: Theme.of(context).accentColor,
+        // textColor: Theme.of(context).accentColor,
         borderSide: BorderSide(
           color: Theme.of(context).accentColor,
         ),

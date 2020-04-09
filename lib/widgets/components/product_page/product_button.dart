@@ -30,7 +30,10 @@ class ProductButton extends StatelessWidget {
             color: color ?? Theme.of(context).accentColor,
           ),
           onPressed: onPressed,
-          child: Text(text),
+          child: Text(
+            text,
+            style: Theme.of(context).primaryTextTheme.button,
+          ),
         ),
       ),
     );

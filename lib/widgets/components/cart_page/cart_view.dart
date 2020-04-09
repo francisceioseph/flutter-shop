@@ -40,6 +40,7 @@ class CartView extends StatelessWidget {
               },
               child: Text(
                 AppLocalizations.of(context).translate('finish_purchase_text'),
+                style: Theme.of(context).primaryTextTheme.button,
               ),
             ),
           )
