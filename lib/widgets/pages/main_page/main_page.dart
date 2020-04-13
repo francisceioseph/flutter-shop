@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
+import 'package:flutter_shop/services/singleton.dart';
 import 'package:flutter_shop/widgets/components/cart_with_number_of_items.dart';
 import 'package:flutter_shop/widgets/pages/landing_page.dart';
 import 'package:flutter_shop/widgets/pages/main_page/cart_tab.dart';
@@ -84,11 +85,21 @@ class MainPage extends StatelessWidget {
     );
   }
 
-  void _logout(BuildContext context) {
-    Navigator.of(context).pushNamedAndRemoveUntil(
-      LandingPage.routeName,
-      (_) => false,
-    );
+  void _logout(BuildContext context) async {
+    try {
+      await Singleton.authRepository.signOut();
+
+      Navigator.of(context).pushNamedAndRemoveUntil(
+        LandingPage.routeName,
+        (_) => false,
+      );
+    } catch (error) {
+      Scaffold.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Can't logout now..."),
+        ),
+      );
+    }
   }
 
   void _goToProfile(BuildContext context) {

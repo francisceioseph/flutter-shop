@@ -34,6 +34,10 @@ dependencies:
   cached_network_image: ^2.0.0
   badges: ^1.1.1
   line_icons: ^0.2.0
+  firebase_core: ^0.4.4+3
+  firebase_auth: ^0.15.5+3
+  google_sign_in: ^4.4.1
+  assets_audio_player: ^1.3.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -53,6 +57,7 @@ flutter:
     - assets/i18n/en.json
     - assets/i18n/pt.json
     - assets/images/placeholder.jpg
+    - assets/audio/error.mp3
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
