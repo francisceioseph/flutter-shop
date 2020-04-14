@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SocialLogin extends StatelessWidget {
+class SocialSignIn extends StatelessWidget {
   final void Function() onFacebookTap;
   final void Function() onGoogleTap;
 
-  const SocialLogin({
+  const SocialSignIn({
     Key key,
     this.onFacebookTap,
     this.onGoogleTap,

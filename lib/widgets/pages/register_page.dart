@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/divider_text.dart';
 import 'package:flutter_shop/widgets/components/register_page/register_form.dart';
-import 'package:flutter_shop/widgets/components/register_page/register_social.dart';
+import 'package:flutter_shop/widgets/components/social_sign_in.dart';
 import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -38,7 +38,7 @@ class RegisterPage extends StatelessWidget {
                 DividerText(
                   text: translator.translate('login_or_text'),
                 ),
-                RegisterSocial(
+                SocialSignIn(
                   onGoogleTap: () => _goToMainPage(context),
                   onFacebookTap: () => _goToMainPage(context),
                 ),

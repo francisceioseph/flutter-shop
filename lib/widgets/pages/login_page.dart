@@ -3,7 +3,7 @@ import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/services/singleton.dart';
 import 'package:flutter_shop/widgets/components/divider_text.dart';
 import 'package:flutter_shop/widgets/components/login_page/login_form.dart';
-import 'package:flutter_shop/widgets/components/login_page/login_social.dart';
+import 'package:flutter_shop/widgets/components/social_sign_in.dart';
 import 'package:flutter_shop/widgets/pages/main_page/main_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -38,7 +38,7 @@ class LoginPage extends StatelessWidget {
                 DividerText(
                   text: translatorManager.translate('login_or_text'),
                 ),
-                SocialLogin(
+                SocialSignIn(
                   onGoogleTap: () => _googleSignIn(context),
                   onFacebookTap: () => _goToMainPage(context),
                 ),
