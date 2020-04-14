@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_shop/models/category.dart';
 
 class CategoriesRepository {
@@ -8,5 +9,19 @@ class CategoriesRepository {
       Category(id: '3', name: 'Accessories'),
       Category(id: '4', name: 'Home'),
     ]);
+  }
+
+  Stream<List<Category>> loadCategories() {
+    return Firestore.instance
+        .collection('categories')
+        .orderBy('name')
+        .snapshots()
+        .map(
+          (QuerySnapshot snap) => snap.documents
+              .map(
+                (DocumentSnapshot snapshot) => Category.fromSnapshot(snapshot),
+              )
+              .toList(),
+        );
   }
 }

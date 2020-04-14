@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_shop/config/app_router.dart';
-import 'package:flutter_shop/models/state/app_state.dart';
+import 'package:flutter_shop/models/state/products_state.dart';
 import 'package:flutter_shop/models/state/auth_state.dart';
 import 'package:flutter_shop/models/state/cart_state.dart';
+import 'package:flutter_shop/models/state/categories_state.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/pages/landing_page.dart';
 import 'package:flutter_shop/widgets/themes/dark_theme.dart';
@@ -17,8 +18,11 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<AppState>(
-          create: (context) => AppState(),
+        ChangeNotifierProvider<ProductsState>(
+          create: (context) => ProductsState(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CategoriesState(),
         ),
         ChangeNotifierProvider<CartState>(
           create: (context) => CartState(),

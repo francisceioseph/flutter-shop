@@ -1,37 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shop/helpers/provider_helper.dart';
-import 'package:flutter_shop/models/state/app_state.dart';
+import 'package:flutter_shop/models/category.dart';
+import 'package:flutter_shop/models/state/categories_state.dart';
 import 'package:flutter_shop/widgets/components/category_item.dart';
 import 'package:flutter_shop/widgets/components/staggered_grid.dart';
 import 'package:provider/provider.dart';
 
-class ProductsTab extends StatefulWidget {
-  const ProductsTab({Key key}) : super(key: key);
-
-  @override
-  _CategoriesTabState createState() => _CategoriesTabState();
-}
-
-class _CategoriesTabState extends State<ProductsTab> {
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    ProviderHelper.appState(context).loadCategories();
-  }
-
+class ProductsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Consumer<AppState>(
+    return Consumer<CategoriesState>(
       builder: (
         BuildContext context,
-        AppState model,
+        CategoriesState state,
         Widget widget,
       ) {
-        return StaggeredGrid(
-          itemCount: model.categories.length,
-          itemBuilder: (BuildContext context, int index) {
-            return CategoryItem(
-              category: model.categories[index],
+        return StreamBuilder(
+          stream: state.categories,
+          builder: (
+            BuildContext context,
+            AsyncSnapshot<List<Category>> snapshot,
+          ) {
+            if (snapshot.hasData) {
+              final categories = snapshot.data;
+
+              return StaggeredGrid(
+                itemCount: categories.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return CategoryItem(
+                    category: categories[index],
+                  );
+                },
+              );
+            }
+
+            state.loadCategories();
+            return Center(
+              child: CircularProgressIndicator(),
             );
           },
         );

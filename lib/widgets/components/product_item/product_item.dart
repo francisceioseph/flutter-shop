@@ -24,7 +24,7 @@ class ProductItem extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          ProviderHelper.appState(context).selectProduct(product);
+          ProviderHelper.productsState(context).selectProduct(product);
           Navigator.of(context).pushNamed(ProductPage.routeName);
         },
         child: Container(

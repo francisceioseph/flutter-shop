@@ -64,7 +64,7 @@ class _SearchTabState extends State<SearchTab> {
   }
 
   void _onSubmitForm() {
-    ProviderHelper.appState(context).filterProducts(content);
+    ProviderHelper.productsState(context).filterProducts(content);
   }
 
   @override

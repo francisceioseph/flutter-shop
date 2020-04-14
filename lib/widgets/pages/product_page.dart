@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/helpers/provider_helper.dart';
-import 'package:flutter_shop/models/state/app_state.dart';
+import 'package:flutter_shop/models/state/products_state.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/product_page/product_button.dart';
 import 'package:flutter_shop/widgets/components/product_page/product_carousel.dart';
@@ -24,8 +24,8 @@ class ProductPage extends StatelessWidget {
         title: Text('Product Details'),
       ),
       body: SingleChildScrollView(
-        child: Consumer<AppState>(
-          builder: (BuildContext context, AppState model, _) {
+        child: Consumer<ProductsState>(
+          builder: (BuildContext context, ProductsState model, _) {
             final product = model.currentProduct;
 
             return Column(
