@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
+import 'package:flutter_shop/services/singleton.dart';
 import 'package:flutter_shop/widgets/components/divider_text.dart';
 import 'package:flutter_shop/widgets/components/register_page/register_form.dart';
 import 'package:flutter_shop/widgets/components/social_sign_in.dart';
@@ -39,7 +40,7 @@ class RegisterPage extends StatelessWidget {
                   text: translator.translate('login_or_text'),
                 ),
                 SocialSignIn(
-                  onGoogleTap: () => _goToMainPage(context),
+                  onGoogleTap: () => _googleSignIn(context),
                   onFacebookTap: () => _goToMainPage(context),
                 ),
               ],
@@ -48,6 +49,15 @@ class RegisterPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _googleSignIn(BuildContext context) async {
+    try {
+      await Singleton.authRepository.signInWithGoogle();
+      _goToMainPage(context);
+    } catch (e) {
+      print(e);
+    }
   }
 
   void _goToMainPage(BuildContext context) {

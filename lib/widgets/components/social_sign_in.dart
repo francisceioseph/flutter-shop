@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/config/feature_toggles.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SocialSignIn extends StatelessWidget {
@@ -21,14 +22,15 @@ class SocialSignIn extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            FlatButton.icon(
-              icon: Icon(FontAwesomeIcons.facebook),
-              label: Text(
-                'Facebook',
-                style: Theme.of(context).primaryTextTheme.button,
+            if (kFacebookLogginToggle)
+              FlatButton.icon(
+                icon: Icon(FontAwesomeIcons.facebook),
+                label: Text(
+                  'Facebook',
+                  style: Theme.of(context).primaryTextTheme.button,
+                ),
+                onPressed: onFacebookTap,
               ),
-              onPressed: onFacebookTap,
-            ),
             FlatButton.icon(
               icon: Icon(FontAwesomeIcons.google),
               label: Text(
