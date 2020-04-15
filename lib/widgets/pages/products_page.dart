@@ -58,7 +58,7 @@ class ProductsPage extends StatelessWidget {
                     );
                   }
 
-                  productsState.loadProducts(categoryState.categoryId);
+                  // productsState.loadProducts(categoryState.categoryId);
 
                   return Center(
                     child: CircularProgressIndicator(),

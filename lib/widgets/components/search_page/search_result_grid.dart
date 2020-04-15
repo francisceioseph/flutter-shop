@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/models/product.dart';
 import 'package:flutter_shop/models/state/products_state.dart';
 import 'package:flutter_shop/widgets/components/product_item/product_item.dart';
 import 'package:flutter_shop/widgets/components/staggered_grid.dart';
@@ -12,11 +13,23 @@ class SearchResultGrid extends StatelessWidget {
     return Container(
       child: Consumer<ProductsState>(
         builder: (context, model, _) {
-          return StaggeredGrid(
-            itemCount: model.filteredProducts.length,
-            itemBuilder: (BuildContext context, int index) {
-              final product = model.filteredProducts[index];
-              return ProductItem(product: product);
+          return StreamBuilder(
+            stream: model.filteredProducts,
+            builder:
+                (BuildContext context, AsyncSnapshot<List<Product>> snapshot) {
+              if (snapshot.hasData) {
+                final products = snapshot.data;
+
+                return StaggeredGrid(
+                  itemCount: products.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    final product = products[index];
+                    return ProductItem(product: product);
+                  },
+                );
+              }
+
+              return Center();
             },
           );
         },

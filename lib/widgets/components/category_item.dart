@@ -22,6 +22,8 @@ class CategoryItem extends StatelessWidget {
       child: InkWell(
         onTap: () {
           ProviderHelper.categoriesState(context).category = category;
+          ProviderHelper.productsState(context).loadProducts(category.id);
+
           Navigator.of(context).pushNamed(ProductsPage.routeName);
         },
         child: Container(

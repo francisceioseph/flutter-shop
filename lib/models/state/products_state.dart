@@ -5,12 +5,12 @@ import 'package:rxdart/rxdart.dart';
 
 class ProductsState extends ChangeNotifier {
   BehaviorSubject<List<Product>> _products = BehaviorSubject();
+  BehaviorSubject<List<Product>> _filteredProducts = BehaviorSubject();
 
-  List<Product> _filteredProducts = [];
   Product _selectedProduct;
 
   Stream<List<Product>> get products => _products.stream;
-  List<Product> get filteredProducts => _filteredProducts;
+  Stream<List<Product>> get filteredProducts => _filteredProducts.stream;
 
   Product get currentProduct => _selectedProduct;
 
@@ -25,9 +25,11 @@ class ProductsState extends ChangeNotifier {
 
   void filterProducts(String name) async {
     if (name == null || name.length == 0) {
-      _filteredProducts = [];
+      _filteredProducts.add([]);
     } else {
-      _filteredProducts = await Singleton.productsRepository.findByName(name);
+      Singleton.productsRepository.findByName(name).take(1).listen((data) {
+        _filteredProducts.add(data);
+      });
     }
 
     notifyListeners();

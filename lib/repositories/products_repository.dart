@@ -24,19 +24,28 @@ class ProductsRepository {
 
         return Rx.combineLatestList(streams);
       },
+    ).map(
+      (products) => [...products]..sort((a, b) => a.name.compareTo(b.name)),
     );
   }
 
-  Future<List<Product>> findByName(String name) async {
+  Stream<List<Product>> findByName(String name) {
     final lowerName = name.toLowerCase();
 
-    final querySnapshot = await Firestore.instance
+    return Firestore.instance
         .collection('products')
         .orderBy('name')
-        .startAt([lowerName]).getDocuments();
-
-    return querySnapshot.documents.map(
-      (snapshot) => Product.fromSnapshot(snapshot),
-    );
+        .snapshots()
+        .map(
+          (query) => query.documents
+              .where((snap) {
+                String name = snap.data['name'];
+                return name.toLowerCase().contains(lowerName);
+              })
+              .map(
+                (snapshot) => Product.fromSnapshot(snapshot),
+              )
+              .toList(),
+        );
   }
 }
