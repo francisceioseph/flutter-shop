@@ -12,15 +12,24 @@ class CartTab extends StatelessWidget {
     return Container(
       child: Consumer<CartState>(
         builder: (BuildContext context, CartState cart, _) {
-          return Visibility(
-            visible: cart.cartItems.length > 0,
-            child: CartView(cart: cart),
-            replacement: Center(
-              child: Text(
-                AppLocalizations.of(context).translate('empty_cart_text'),
-                style: Theme.of(context).primaryTextTheme.title,
-              ),
-            ),
+          return StreamBuilder(
+            stream: cart.cartItems,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Visibility(
+                  visible: snapshot.data.length > 0,
+                  child: CartView(cart: cart),
+                  replacement: Center(
+                    child: Text(
+                      AppLocalizations.of(context).translate('empty_cart_text'),
+                      style: Theme.of(context).primaryTextTheme.title,
+                    ),
+                  ),
+                );
+              }
+
+              return Container();
+            },
           );
         },
       ),

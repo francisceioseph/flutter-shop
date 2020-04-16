@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/services/singleton.dart';
 import 'package:flutter_shop/widgets/components/cart_with_number_of_items.dart';
@@ -23,6 +24,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final translator = AppLocalizations.of(context);
+    ProviderHelper.cartState(context).getCart();
 
     final List<Widget> tabs = [
       Tab(

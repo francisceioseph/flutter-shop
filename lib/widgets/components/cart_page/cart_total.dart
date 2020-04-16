@@ -8,14 +8,24 @@ class CartTotalValue extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.centerRight,
-      margin: EdgeInsets.all(16),
-      child: Text(
-        'Total: R\$ ${cart.totalCartValue.toStringAsFixed(2)}',
-        textAlign: TextAlign.right,
-        style: Theme.of(context).primaryTextTheme.title,
-      ),
+    return StreamBuilder(
+      stream: cart.totalCartValue,
+      builder: (BuildContext context, AsyncSnapshot<double> snapshot) {
+        if (snapshot.hasData) {
+          final value = snapshot.data;
+          return Container(
+            alignment: Alignment.centerRight,
+            margin: EdgeInsets.all(16),
+            child: Text(
+              'Total: R\$ ${value.toStringAsFixed(2)}',
+              textAlign: TextAlign.right,
+              style: Theme.of(context).primaryTextTheme.title,
+            ),
+          );
+        }
+
+        return LinearProgressIndicator();
+      },
     );
   }
 }
