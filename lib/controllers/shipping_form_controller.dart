@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/models/shipping.dart';
 import 'package:flutter_shop/services/validator.dart';
 
 class ShippingFormController {
@@ -12,6 +13,8 @@ class ShippingFormController {
   final stateFocusNode = FocusNode();
   final cityFocusNode = FocusNode();
   final zipFocusNode = FocusNode();
+
+  final data = Shipping();
 
   ShippingFormController.of(BuildContext context)
       : assert(context != null),
