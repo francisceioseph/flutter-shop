@@ -5,6 +5,7 @@ import 'package:flutter_shop/services/validator.dart';
 class ShippingFormController {
   final BuildContext context;
   final Validator _validator;
+  final Shipping data;
 
   final fullNameFocusNode = FocusNode();
   final addressFocusNode = FocusNode();
@@ -14,11 +15,10 @@ class ShippingFormController {
   final cityFocusNode = FocusNode();
   final zipFocusNode = FocusNode();
 
-  final data = Shipping();
-
-  ShippingFormController.of(BuildContext context)
+  ShippingFormController({@required BuildContext context, data})
       : assert(context != null),
         context = context,
+        data = data ?? Shipping(),
         _validator = Validator.of(context);
 
   String fullNameValidator(String value) {

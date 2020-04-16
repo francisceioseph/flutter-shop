@@ -20,7 +20,7 @@ class Shipping {
         city = snapshot.data['city'],
         zip = snapshot.data['zip'];
 
-  toJson() {
+  Map<String, dynamic> toMap() {
     return {
       'fullName': fullName,
       'address': address,

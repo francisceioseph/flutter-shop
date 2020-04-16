@@ -5,6 +5,7 @@ import 'package:flutter_shop/models/state/products_state.dart';
 import 'package:flutter_shop/models/state/auth_state.dart';
 import 'package:flutter_shop/models/state/cart_state.dart';
 import 'package:flutter_shop/models/state/categories_state.dart';
+import 'package:flutter_shop/models/state/shipping_state.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/pages/landing_page.dart';
 import 'package:flutter_shop/widgets/themes/dark_theme.dart';
@@ -29,6 +30,9 @@ class App extends StatelessWidget {
         ),
         ChangeNotifierProvider<AuthState>(
           create: (context) => AuthState(),
+        ),
+        Provider(
+          create: (context) => ShippingState(),
         ),
       ],
       child: Container(

@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/controllers/shipping_form_controller.dart';
+import 'package:flutter_shop/models/shipping.dart';
+import 'package:flutter_shop/models/state/shipping_state.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/finish_purchase/shipping_step/shipping_form/address_line_1.dart';
 import 'package:flutter_shop/widgets/components/finish_purchase/shipping_step/shipping_form/address_line_2.dart';
 import 'package:flutter_shop/widgets/components/finish_purchase/shipping_step/shipping_form/address_line_3.dart';
 import 'package:flutter_shop/widgets/components/finish_purchase/shipping_step/shipping_form/name_line.dart';
 import 'package:flutter_shop/widgets/components/finish_purchase/step_buttons.dart';
+import 'package:provider/provider.dart';
 
 class ShippingForm extends StatefulWidget {
+  final Shipping initialData;
   final void Function() onNextTap;
   final void Function() onBackTap;
 
@@ -15,6 +19,7 @@ class ShippingForm extends StatefulWidget {
     Key key,
     @required this.onNextTap,
     @required this.onBackTap,
+    this.initialData,
   }) : super(key: key);
 
   @override
@@ -29,6 +34,7 @@ class _ShippingFormState extends State<ShippingForm> {
   @override
   void initState() {
     _formKey = GlobalKey<FormState>();
+    Provider.of<ShippingState>(context, listen: false).loadShippingData();
 
     super.initState();
   }
@@ -36,7 +42,10 @@ class _ShippingFormState extends State<ShippingForm> {
   @override
   void didChangeDependencies() {
     _translator = AppLocalizations.of(context);
-    _controller = ShippingFormController.of(context);
+    _controller = ShippingFormController(
+      context: context,
+      data: widget.initialData,
+    );
 
     super.didChangeDependencies();
   }
@@ -137,6 +146,10 @@ class _ShippingFormState extends State<ShippingForm> {
   void _onNextTap() {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
+
+      Provider.of<ShippingState>(context, listen: false)
+          .saveShipping(_controller.data);
+
       widget.onNextTap();
     }
   }
