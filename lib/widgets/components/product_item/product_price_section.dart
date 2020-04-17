@@ -26,7 +26,10 @@ class ProductPriceSection extends StatelessWidget {
             child: Text(
               '${product.discount}% OFF',
               textAlign: TextAlign.center,
-              style: Theme.of(context).accentTextTheme.subtitle,
+              style: Theme.of(context)
+                  .accentTextTheme
+                  .subtitle
+                  .copyWith(color: Colors.lightGreen),
             ),
           ),
       ],
