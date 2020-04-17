@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/models/credit_card.dart';
 import 'package:flutter_shop/services/validator.dart';
 
 class PaymentFormController {
@@ -9,9 +10,11 @@ class PaymentFormController {
 
   final BuildContext context;
   final Validator _validator;
+  final CreditCard data;
 
-  PaymentFormController.of(BuildContext context)
+  PaymentFormController({@required context, CreditCard data})
       : context = context,
+        data = data ?? CreditCard(),
         _validator = Validator.of(context);
 
   String userCardNameValidator(String value) {
