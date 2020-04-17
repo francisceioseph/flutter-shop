@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/models/product.dart';
+import 'package:flutter_shop/models/state/main_page_state.dart';
 import 'package:flutter_shop/models/state/products_state.dart';
 import 'package:flutter_shop/widgets/components/cart_with_number_of_items.dart';
 import 'package:flutter_shop/widgets/components/product_item/product_item.dart';
@@ -26,6 +27,9 @@ class ProductsPage extends StatelessWidget {
               return IconButton(
                 icon: CartWithNumberOfItems(),
                 onPressed: () {
+                  Provider.of<MainPageState>(context, listen: false)
+                      .changeTabIndex(2);
+
                   Navigator.of(context).pushNamedAndRemoveUntil(
                     MainPage.routeName,
                     (_) => false,

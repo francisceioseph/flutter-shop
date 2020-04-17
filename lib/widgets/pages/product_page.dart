@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/helpers/provider_helper.dart';
+import 'package:flutter_shop/models/state/main_page_state.dart';
 import 'package:flutter_shop/models/state/products_state.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/product_page/product_button.dart';
@@ -70,6 +71,7 @@ class ProductPage extends StatelessWidget {
       action: SnackBarAction(
         label: 'Go Home',
         onPressed: () {
+          Provider.of<MainPageState>(context, listen: false).changeTabIndex(2);
           Navigator.of(context).pushNamedAndRemoveUntil(
             MainPage.routeName,
             (_) => false,
