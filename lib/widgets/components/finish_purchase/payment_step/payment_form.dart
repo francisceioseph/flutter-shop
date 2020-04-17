@@ -6,6 +6,7 @@ import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/services/singleton.dart';
 import 'package:flutter_shop/widgets/components/finish_purchase/step_buttons.dart';
 import 'package:flutter_shop/widgets/components/outline_form_text_field.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class PaymentForm extends StatefulWidget {
   final CreditCard initialData;
@@ -51,6 +52,20 @@ class _PaymentFormState extends State<PaymentForm> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final creditCardNumberMask = MaskTextInputFormatter(
+      mask: "#### #### #### ####",
+      filter: {"#": RegExp(r'[0-9]')},
+    );
+
+    final expireDateMask = MaskTextInputFormatter(
+      mask: "####/##",
+      filter: {"#": RegExp(r'[0-9]')},
+    );
+
+    final cvcMask = MaskTextInputFormatter(
+      mask: "###",
+      filter: {"#": RegExp(r'[0-9]')},
+    );
 
     return CustomScrollView(slivers: [
       SliverToBoxAdapter(
@@ -89,6 +104,7 @@ class _PaymentFormState extends State<PaymentForm> {
                   validator: controller.cardNumberValidator,
                   onFieldSubmitted: controller.cardNumberSubmitted,
                   onFieldSaved: _cardNumberSaved,
+                  inputFormatters: [creditCardNumberMask],
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.min,
@@ -104,6 +120,7 @@ class _PaymentFormState extends State<PaymentForm> {
                         validator: controller.expireDateValidator,
                         onFieldSubmitted: controller.expireDateSubmitted,
                         onFieldSaved: _expireDateSaved,
+                        inputFormatters: [expireDateMask],
                       ),
                     ),
                     Expanded(
@@ -116,6 +133,7 @@ class _PaymentFormState extends State<PaymentForm> {
                         focusNode: controller.cvcFocusNode,
                         validator: controller.cvcValidator,
                         onFieldSaved: _cvcSaved,
+                        inputFormatters: [cvcMask],
                       ),
                     ),
                   ],

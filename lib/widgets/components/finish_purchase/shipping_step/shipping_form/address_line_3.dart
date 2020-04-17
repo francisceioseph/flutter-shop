@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop/controllers/shipping_form_controller.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/outline_form_text_field.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class AddressLine3 extends StatelessWidget {
   final ShippingFormController controller;
@@ -18,6 +19,10 @@ class AddressLine3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final translator = AppLocalizations.of(context);
+    final zipMask = MaskTextInputFormatter(
+      mask: "#####-###",
+      filter: {"#": RegExp(r'[0-9]')},
+    );
 
     return Row(
       mainAxisSize: MainAxisSize.min,
@@ -44,6 +49,7 @@ class AddressLine3 extends StatelessWidget {
             validator: controller.zipValidator,
             onFieldSubmitted: controller.zipSubmitted,
             onFieldSaved: onZipSaved,
+            inputFormatters: [zipMask],
           ),
         ),
       ],

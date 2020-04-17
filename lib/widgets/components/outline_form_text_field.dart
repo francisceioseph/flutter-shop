@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class OutlineFormTextField extends StatelessWidget {
   final FocusNode focusNode;
@@ -14,6 +15,7 @@ class OutlineFormTextField extends StatelessWidget {
   final TextInputAction textInputAction;
   final bool obscureText;
   final int maxLines;
+  final List<TextInputFormatter> inputFormatters;
 
   OutlineFormTextField({
     Key key,
@@ -21,6 +23,7 @@ class OutlineFormTextField extends StatelessWidget {
     this.labelText,
     this.validator,
     this.focusNode,
+    this.inputFormatters,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
     this.textInputAction = TextInputAction.done,
@@ -66,6 +69,7 @@ class OutlineFormTextField extends StatelessWidget {
           ),
         ),
         style: textStyle,
+        inputFormatters: inputFormatters,
       ),
     );
   }
