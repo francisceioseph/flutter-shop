@@ -7,10 +7,7 @@ class CreditCardRepository {
   loadCreditCard() {
     return _user
         .switchMap(
-          (FirebaseUser user) => Firestore.instance
-              .collection('shippings')
-              .document(user.uid)
-              .snapshots(),
+          (FirebaseUser user) => _creditCards.document(user.uid).snapshots(),
         )
         .switchMap(_ensureCreditCardExistence)
         .map(
@@ -29,7 +26,7 @@ class CreditCardRepository {
               .asStream(),
         )
         .take(1)
-        .listen((_) {});
+        .listen(print);
   }
 
   Stream<DocumentSnapshot> _ensureCreditCardExistence(
@@ -52,5 +49,5 @@ class CreditCardRepository {
       FirebaseAuth.instance.currentUser().asStream();
 
   CollectionReference get _creditCards =>
-      Firestore.instance.collection('shippings');
+      Firestore.instance.collection('cards');
 }

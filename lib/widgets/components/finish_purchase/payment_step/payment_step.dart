@@ -29,8 +29,6 @@ class PaymentStep extends StatelessWidget {
               );
             }
 
-            state.loadCreditCardData();
-
             return Center(
               child: CircularProgressIndicator(),
             );

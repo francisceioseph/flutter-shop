@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/controllers/payment_form_controller.dart';
+import 'package:flutter_shop/helpers/provider_helper.dart';
 import 'package:flutter_shop/models/credit_card.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
+import 'package:flutter_shop/services/singleton.dart';
 import 'package:flutter_shop/widgets/components/finish_purchase/step_buttons.dart';
 import 'package:flutter_shop/widgets/components/outline_form_text_field.dart';
 
@@ -29,6 +31,8 @@ class _PaymentFormState extends State<PaymentForm> {
   @override
   void initState() {
     formKey = GlobalKey<FormState>();
+
+    ProviderHelper.creditCardState(context).loadCreditCardData();
 
     super.initState();
   }
@@ -118,12 +122,10 @@ class _PaymentFormState extends State<PaymentForm> {
         ),
       ),
       SliverFillRemaining(
-        child: SliverFillRemaining(
-          hasScrollBody: false,
-          child: StepButtons(
-            onNextTap: _onNextTap,
-            onBackTap: widget.onBackTap,
-          ),
+        hasScrollBody: false,
+        child: StepButtons(
+          onNextTap: _onNextTap,
+          onBackTap: widget.onBackTap,
         ),
       ),
     ]);
@@ -156,6 +158,7 @@ class _PaymentFormState extends State<PaymentForm> {
   void _onNextTap() {
     if (formKey.currentState.validate()) {
       formKey.currentState.save();
+      Singleton.creditCardRepository.saveCreditCard(controller.data);
       widget.onNextTap();
     }
   }

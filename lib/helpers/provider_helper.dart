@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/models/state/credit_card_state.dart';
 import 'package:flutter_shop/models/state/products_state.dart';
 import 'package:flutter_shop/models/state/cart_state.dart';
 import 'package:flutter_shop/models/state/categories_state.dart';
@@ -14,6 +15,10 @@ class ProviderHelper {
   }
 
   static CategoriesState categoriesState(BuildContext context) {
-    return Provider.of(context, listen: false);
+    return Provider.of<CategoriesState>(context, listen: false);
+  }
+
+  static CreditCardState creditCardState(BuildContext context) {
+    return Provider.of<CreditCardState>(context, listen: false);
   }
 }
