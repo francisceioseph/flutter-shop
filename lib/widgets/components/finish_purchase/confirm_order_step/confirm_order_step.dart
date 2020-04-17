@@ -62,14 +62,29 @@ class ConfirmOrderStep extends StatelessWidget {
                 ),
                 child: Consumer<CartState>(
                   builder: (context, cart, _) {
-                    return Text(
-                      "R\$ ${cart.totalCartValue}",
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).primaryTextTheme.title.copyWith(
-                            color: Theme.of(context).accentColor,
-                            fontSize: 40,
-                            fontWeight: FontWeight.w800,
-                          ),
+                    return StreamBuilder(
+                      stream: cart.totalCartValue,
+                      builder: (
+                        BuildContext context,
+                        AsyncSnapshot<double> snapshot,
+                      ) {
+                        if (snapshot.hasData) {
+                          return Text(
+                            "R\$ ${snapshot.data}",
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context)
+                                .primaryTextTheme
+                                .title
+                                .copyWith(
+                                  color: Theme.of(context).accentColor,
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                          );
+                        }
+
+                        return Container();
+                      },
                     );
                   },
                 ),

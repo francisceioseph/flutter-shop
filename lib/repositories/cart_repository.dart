@@ -37,7 +37,7 @@ class CartRepository {
       return _cartsCollection.document(cartDoc.documentID).updateData({
         '$productId': {'amount': cartData[productId]['amount'] + 1}
       }).asStream();
-    }).listen(print);
+    }).listen((_) {});
   }
 
   void cleanCart() {
@@ -45,7 +45,7 @@ class CartRepository {
 
     userStream.switchMap((FirebaseUser user) {
       return _cartsCollection.document(user.uid).setData({}).asStream();
-    });
+    }).listen((_) {});
   }
 
   CollectionReference get _cartsCollection =>
