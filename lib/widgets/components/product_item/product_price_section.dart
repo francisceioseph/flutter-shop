@@ -16,7 +16,7 @@ class ProductPriceSection extends StatelessWidget {
     return Row(
       children: <Widget>[
         Text(
-          'R\$ ${product.price}',
+          'R\$ ${product.price.toStringAsFixed(2)}',
           style: textTheme.title.copyWith(
             fontSize: 20,
           ),

@@ -17,7 +17,7 @@ class ProductOldPriceSection extends StatelessWidget {
       child: Visibility(
         visible: product.discount > 0,
         child: Text(
-          'R\$ ${product.oldPrice}',
+          'R\$ ${product.oldPrice.toStringAsFixed(2)}',
           style: textTheme.subhead.copyWith(
             fontWeight: FontWeight.w200,
             decoration: TextDecoration.lineThrough,
