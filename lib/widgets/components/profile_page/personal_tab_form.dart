@@ -51,11 +51,17 @@ class _PersonalTabFormState extends State<PersonalTabForm> {
       child: Form(
         key: _formKey,
         child: Consumer<PersonalInfoState>(
-          builder: (BuildContext context, PersonalInfoState state, _) {
+          builder: (
+            BuildContext context,
+            PersonalInfoState state,
+            _,
+          ) {
             return StreamBuilder(
               stream: state.personalInfo,
-              builder: (BuildContext context,
-                  AsyncSnapshot<PersonalInformation> snapshot) {
+              builder: (
+                BuildContext context,
+                AsyncSnapshot<PersonalInformation> snapshot,
+              ) {
                 if (snapshot.hasData) {
                   final personalInfo = snapshot.data;
 
