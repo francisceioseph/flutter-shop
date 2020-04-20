@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/controllers/shipping_form_controller.dart';
-import 'package:flutter_shop/models/shipping.dart';
 import 'package:flutter_shop/models/state/shipping_state.dart';
 import 'package:flutter_shop/services/app_localizations.dart';
 import 'package:flutter_shop/widgets/components/finish_purchase/shipping_step/shipping_form/address_line_1.dart';
@@ -11,7 +10,6 @@ import 'package:flutter_shop/widgets/components/finish_purchase/step_buttons.dar
 import 'package:provider/provider.dart';
 
 class ShippingForm extends StatefulWidget {
-  final Shipping initialData;
   final void Function() onNextTap;
   final void Function() onBackTap;
 
@@ -19,7 +17,6 @@ class ShippingForm extends StatefulWidget {
     Key key,
     @required this.onNextTap,
     @required this.onBackTap,
-    this.initialData,
   }) : super(key: key);
 
   @override
@@ -42,10 +39,6 @@ class _ShippingFormState extends State<ShippingForm> {
   @override
   void didChangeDependencies() {
     _translator = AppLocalizations.of(context);
-    _controller = ShippingFormController(
-      context: context,
-      data: widget.initialData,
-    );
 
     super.didChangeDependencies();
   }
@@ -59,40 +52,59 @@ class _ShippingFormState extends State<ShippingForm> {
         SliverToBoxAdapter(
           child: Form(
             key: _formKey,
-            child: Container(
-              margin: EdgeInsets.only(
-                bottom: 16,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.all(16),
-                    child: Text(
-                      _translator.translate('shipping_title_text'),
-                      style: theme.primaryTextTheme.title,
-                    ),
-                  ),
-                  NameLine(
-                    controller: _controller,
-                    onFullNameSaved: _fullNameSaved,
-                  ),
-                  AddressLine1(
-                    controller: _controller,
-                    onAddressSaved: _addressSaved,
-                  ),
-                  AddressLine2(
-                    controller: _controller,
-                    onCountrySaved: _countrySaved,
-                    onStateSaved: _stateSaved,
-                  ),
-                  AddressLine3(
-                    controller: _controller,
-                    onCitySaved: _citySaved,
-                    onZipSaved: _zipSaved,
-                  ),
-                ],
-              ),
+            child: Consumer<ShippingState>(
+              builder: (context, model, _) {
+                return StreamBuilder(
+                    stream: model.shipping,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        _controller = ShippingFormController(
+                          context: context,
+                          data: snapshot.data,
+                        );
+
+                        return Container(
+                          margin: EdgeInsets.only(
+                            bottom: 16,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: <Widget>[
+                              Container(
+                                margin: EdgeInsets.all(16),
+                                child: Text(
+                                  _translator.translate('shipping_title_text'),
+                                  style: theme.primaryTextTheme.title,
+                                ),
+                              ),
+                              NameLine(
+                                controller: _controller,
+                                onFullNameSaved: _fullNameSaved,
+                              ),
+                              AddressLine1(
+                                controller: _controller,
+                                onAddressSaved: _addressSaved,
+                              ),
+                              AddressLine2(
+                                controller: _controller,
+                                onCountrySaved: _countrySaved,
+                                onStateSaved: _stateSaved,
+                              ),
+                              AddressLine3(
+                                controller: _controller,
+                                onCitySaved: _citySaved,
+                                onZipSaved: _zipSaved,
+                              ),
+                            ],
+                          ),
+                        );
+                      }
+
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    });
+              },
             ),
           ),
         ),
