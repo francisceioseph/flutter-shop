@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_shop/config/app_router.dart';
 import 'package:flutter_shop/models/state/credit_card_state.dart';
 import 'package:flutter_shop/models/state/main_page_state.dart';
+import 'package:flutter_shop/models/state/personal_info_state.dart';
 import 'package:flutter_shop/models/state/products_state.dart';
 import 'package:flutter_shop/models/state/auth_state.dart';
 import 'package:flutter_shop/models/state/cart_state.dart';
@@ -41,7 +42,10 @@ class App extends StatelessWidget {
         ),
         Provider(
           create: (context) => CreditCardState(),
-        )
+        ),
+        Provider(
+          create: (context) => PersonalInfoState(),
+        ),
       ],
       child: Container(
         child: MaterialApp(

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/models/personal_information.dart';
 import 'package:flutter_shop/services/validator.dart';
 
 class PersonalTabFormController {
+  final PersonalInformation personalInformation;
   final BuildContext context;
   final Validator _validator;
 
-  PersonalTabFormController.of(BuildContext context)
-      : context = context,
-        _validator = Validator.of(context);
+  PersonalTabFormController({
+    @required this.context,
+    this.personalInformation,
+  }) : _validator = Validator.of(context);
 
   final nameFocusNode = FocusNode();
   final birthDateFocusNode = FocusNode();

@@ -67,5 +67,7 @@
   "save": "save",
   "current_password_label": "current password",
   "new_password_label": "new password",
-  "new_password_confirmation_label": "new password confirmation"
+  "new_password_confirmation_label": "new password confirmation",
+  "birth_date_mask": "####/##/##",
+  "phone_mask": "(###) ###-###"
 }
